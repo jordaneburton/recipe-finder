@@ -44,12 +44,50 @@ function buildRecipe(recipeData){
   const div = document.createElement("div");
   const title = document.createElement("h1");
   const image = document.createElement("img");
+  //Creating the save buttons
+  const saveButton = document.createElement("button");
+  saveButton.textContent = "Save";
+
   div.append(title);
   div.append(image);
+  //appending the save buttons to the div
+  div.append(saveButton);
+
   title.textContent = recipeData.title;
   image.src = recipeData.image;
 	
-  return div;
+// Click event listener for save
+saveButton.addEventListener("click", function() {
+  // Create an object with the API call info
+  const savedRecipe = {
+    id: recipeData.id,
+    title: recipeData.title,
+    image: recipeData.image,
+  };
+
+  // Retrieve existing saved recipes from local storage
+  const existingRecipes = localStorage.getItem("savedRecipes");
+
+  let recipesArray;
+  if (existingRecipes) {
+    recipesArray = JSON.parse(existingRecipes);
+  } else {
+    recipesArray = [];
+  }
+
+  // Push the new recipe to the array
+  recipesArray.push(savedRecipe);
+
+  // Convert the updated array to a JSON string
+  const updatedRecipes = JSON.stringify(recipesArray);
+
+  // Store the updated JSON string in local storage
+  localStorage.setItem("savedRecipes", updatedRecipes);
+
+  console.log("Recipe saved:", savedRecipe);
+});
+
+return div;
 }
 const testDataPastaRecipes = {
   "results": [
