@@ -8,6 +8,7 @@ document.getElementById("home").onclick = (event) =>{
 }
 var recentData = undefined;
 var recipesElements = [];
+
 document.getElementById("search").onclick = (event)=>{
   event.preventDefault();
   console.log("click");
@@ -21,7 +22,8 @@ document.getElementById("search").onclick = (event)=>{
   setRecipes(testDataPastaRecipes.results);
 };
 function complexSearch(query){
-  fetch(`${apiURL}complexSearch?${apiKeyString}&${query}`)
+	document.getElementById("last-query").textContent = query;
+  fetch(`${apiURL}complexSearch?${apiKeyString}&query=${query}`)
   .then(result => result.json())
   .then(function(data){
 		console.log(data);
@@ -55,6 +57,13 @@ function buildRecipe(recipeData){
 	
   return div;
 }
+
+const query = sessionStorage.getItem("search");
+if(query !== null){
+	complexSearch(query);
+	sessionStorage.clear();
+}
+
 const testDataPastaRecipes = {
   "results": [
 		{

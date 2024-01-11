@@ -21,6 +21,7 @@ function searchRecipes(event){
     console.log("No Value Entered...");
     return;
   }
+  sessionStorage.setItem("search", query);
   document.location.replace("./api/Recipes.html");
 }
 
