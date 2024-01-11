@@ -8,11 +8,16 @@
     <title>Online Cookbook</title>
 </head>
 <body>
-    <header class="container h-40vh flex flex-wrap justify-center content-center">
+    <header class="container max-w-full h-40vh flex flex-wrap justify-center content-center">
         <h1 class="text-center">Online Cookbook</h1>
+        <button type="button" 
+            id="myRecipesBtn"
+            class="fixed top-0 left-0 w-1/3 md:w-1/4 lg:w-auto rounded-br-lg bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            My Recipes
+        </button>
     </header>
         
-    <main class="container">
+    <main class="container max-w-full">
         <section class="h-40vh flex flex-col flex-wrap content-center">
             <label for="recipeSearch" class="text-sm font-medium leading-6 text-gray-900">Type in a food and we'll find the recipe</label>
             <div class="mt-2 flex flex-wrap justify-center content-center">
@@ -30,5 +35,13 @@
             </div>
         </section>
     </main>
+
+    <footer class="container max-w-full absolute bottom-0 h-18vh bg-indigo-600">
+        <section class="py-1 md:px-2 flex flex-col flex-wrap content-center md:content-start">
+            <a href="#" target="_blank" class="rounded-full px-3 my-1 text-indigo-500 bg-white hover:bg-indigo-500">Jordan Burton</a>
+            <a href="#" target="_blank" class="rounded-full px-3 my-1 text-indigo-500 bg-white hover:bg-indigo-500">Luke Garnsey</a>
+            <a href="#" target="_blank" class="rounded-full px-3 my-1 text-indigo-500 bg-white hover:bg-indigo-500">Winston Steidley</a>
+        </section>
+    </footer>
 </body>
 </html>
