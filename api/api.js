@@ -2,8 +2,13 @@ const apiKey = "72cb5b31608b4fde9b58b12b834a21a6";
 const apiURL = "https://api.spoonacular.com/recipes/"
 const apiKeyString = `apiKey=${apiKey}`;
 
+document.getElementById("home").onclick = (event) =>{
+	event.preventDefault();
+	document.location.replace("../index.html");
+}
 var recentData = undefined;
 var recipesElements = [];
+
 document.getElementById("search").onclick = (event)=>{
   event.preventDefault();
   console.log("click");
@@ -17,7 +22,8 @@ document.getElementById("search").onclick = (event)=>{
   setRecipes(testDataPastaRecipes.results);
 };
 function complexSearch(query){
-  fetch(`${apiURL}complexSearch?${apiKeyString}&${query}`)
+	document.getElementById("last-query").textContent = query;
+  fetch(`${apiURL}complexSearch?${apiKeyString}&query=${query}`)
   .then(result => result.json())
   .then(function(data){
 		console.log(data);
@@ -51,6 +57,13 @@ function buildRecipe(recipeData){
 	
   return div;
 }
+
+const query = sessionStorage.getItem("search");
+if(query !== null){
+	complexSearch(query);
+	sessionStorage.clear();
+}
+
 const testDataPastaRecipes = {
   "results": [
 		{
