@@ -8,31 +8,27 @@
     <title>Online Cookbook</title>
 </head>
 <body>
-    <header class="container">
-        <h1 class="">Page Header</h1>
+    <header class="container h-40vh flex flex-wrap justify-center content-center">
+        <h1 class="text-center">Online Cookbook</h1>
     </header>
         
     <main class="container">
-        <section class="">
-            <label for="recipeSearch" class="block text-sm font-medium leading-6 text-gray-900">Type in a food and we'll find the recipe</label>
-            <div class="mt-2">
+        <section class="h-40vh flex flex-col flex-wrap content-center">
+            <label for="recipeSearch" class="text-sm font-medium leading-6 text-gray-900">Type in a food and we'll find the recipe</label>
+            <div class="mt-2 flex flex-wrap justify-center content-center">
                 <input type="recipeSearch" 
                     id="recipeSearch" 
                     name="recipeSearch" 
-                    class="rounded-md border-0 bg-transparent py-1.5 pl-1 ring-1 ring-inset ring-gray-300 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
+                    class="rounded-md border-0 bg-transparent py-1.5 mx-1 pl-1 ring-1 ring-inset ring-gray-300 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
                     placeholder="Your favorite recipe">
 
                 <button type="button" 
                     id="searchBtn"
-                    class="inline rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    class="inline-flex rounded-md bg-indigo-600 px-3 py-2 mx-1 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Save
                 </button>
             </div>
         </section>
-        <!-- font-bold is Tailwind class for testing -->
-        <p class="font-bold">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem consequuntur quisquam, vitae quasi eaque cupiditate recusandae reiciendis vero sunt eum ipsa est velit dolor, ducimus nam aspernatur beatae eos tenetur?
-        </p>
     </main>
 </body>
 </html>
