@@ -20,7 +20,8 @@ function complexSearch(query){
   fetch(`${apiURL}complexSearch?${apiKeyString}&${query}`)
   .then(result => result.json())
   .then(function(data){
-    setRecipes(data);
+		console.log(data);
+    setRecipes(data.results);
   });
 }
 function complexSearchResults(result){
