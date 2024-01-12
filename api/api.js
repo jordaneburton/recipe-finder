@@ -2,28 +2,52 @@ const apiKey = "72cb5b31608b4fde9b58b12b834a21a6";
 const apiURL = "https://api.spoonacular.com/recipes/"
 const apiKeyString = `apiKey=${apiKey}`;
 
-document.getElementById("home").onclick = (event) =>{
-	event.preventDefault();
-	document.location.replace("../index.html");
-}
+const USE_API = false;
+
+// For Go Home functionality -- but there is no going home
+// document.getElementById("home").onclick = (event) =>{
+// 	event.preventDefault();
+// 	document.location.replace("../index.html");
+// }
 var recentData = undefined;
 var recipesElements = [];
 
-document.getElementById("search").onclick = (event)=>{
+const recipeSearchEl = document.getElementById("recipeSearch");
+//Find Search button and setup click event
+const searchButtonEl = document.getElementById("searchBtn");
+searchButtonEl.onclick = searchRecipesClick;
+
+//Go to Recipes page and ping API with user entered value
+function searchRecipesClick(event){
   event.preventDefault();
-  console.log("click");
+  const query = recipeSearchEl.value.trim();
+  if(query === ""){
+    console.log("No Value Entered...");
+    return;
+  }
+
+	searchRecipes(query);
+}
+function searchRecipes(query){
 	const recipesDiv = document.getElementById("recipe-div");
 	for(let i = 0;i<recipesElements.length;i++){
 		console.log(recipesElements[i]);
 		recipesDiv.removeChild(recipesElements[i]);
 	}
 	recipesElements = [];
-  // complexSearch("query=chicken&includeIngredients=rice&type=main");
-  setRecipes(testDataPastaRecipes.results);
-};
-function complexSearch(query){
-	document.getElementById("last-query").textContent = query;
-  fetch(`${apiURL}complexSearch?${apiKeyString}&query=${query}`)
+	if(USE_API){//includeIngredients=rice&type=main
+		console.log(USE_API);
+  	complexSearch(`&query=${query}`);
+	}
+	else{
+		document.getElementById("last-query").textContent = "TestData: " + `&query=${query}`;
+  	setRecipes(testDataPastaRecipes.results);
+	}
+}
+
+function complexSearch(parameters){
+	document.getElementById("last-query").textContent = parameters;
+  fetch(`${apiURL}complexSearch?${apiKeyString}${parameters}`)
   .then(result => result.json())
   .then(function(data){
 		console.log(data);
@@ -96,12 +120,6 @@ saveButton.addEventListener("click", function() {
 return div;
 }
 
-const query = sessionStorage.getItem("search");
-if(query !== null){
-	complexSearch(query);
-	sessionStorage.clear();
-}
-
 const testDataPastaRecipes = {
   "results": [
 		{
@@ -169,3 +187,10 @@ const testDataPastaRecipes = {
 	"number": 10,
 	"totalResults": 261
 };
+
+//TODO think about this!!
+const query = sessionStorage.getItem("search");
+if(query !== null){
+	searchRecipes(query);
+	sessionStorage.clear();
+}
