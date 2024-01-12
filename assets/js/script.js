@@ -22,7 +22,7 @@ function searchRecipesClick(event){
     return;
   }
   sessionStorage.setItem("search", query);
-  document.location.replace("./api/Recipes.html");
+  document.location.replace("./search.html");
 }
 
 // THEN 

@@ -10,6 +10,12 @@
 <body>
     <header class="container max-w-full max-sm:h-40 h-18vh flex flex-1 flex-wrap justify-center md:justify-end">
         <!-- <h1 class="text-center">Online Cookbook</h1> -->
+        <a href="#" 
+            id="myRecipesBtn"
+            class="fixed top-0 left-0 w-1/3 md:w-1/4 lg:w-auto rounded-br-lg bg-indigo-600 px-3 py-2 text-sm font-semibold text-white text-center shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            My Recipes
+        </a>
+
         <div class="mt-2 flex flex-wrap justify-center content-center ">
             <input type="recipeSearch" 
                 id="recipeSearch" 
@@ -20,23 +26,22 @@
             <button type="button" 
                 id="searchBtn"
                 class="inline-flex rounded-md bg-indigo-600 px-3 py-2 mx-1 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                Search
+                Save
             </button>
         </div>
         
     </header>
         
     <main class="container max-w-full">
-      <div id="saved-recipes" style="display: flex; flex-wrap: wrap; width: 75%; gap: 10px;" id="recipe-div"> </div><!-- for populating with recipes -->
+        <!-- for populating with recipes -->
     </main>
 
     <footer class="container max-w-full absolute bottom-0 h-18vh bg-indigo-600">
         <section class="py-1 md:px-2 flex flex-col flex-wrap content-center md:content-start">
-          <a href="https://github.com/jordaneburton" target="_blank" class="rounded-full px-3 my-1 text-indigo-500 bg-white hover:bg-indigo-500">Jordan Burton</a>
-          <a href="https://github.com/LukeGarnsey" target="_blank" class="rounded-full px-3 my-1 text-indigo-500 bg-white hover:bg-indigo-500">Luke Garnsey</a>
-          <a href="https://github.com/Schtitle24" target="_blank" class="rounded-full px-3 my-1 text-indigo-500 bg-white hover:bg-indigo-500">Winston "Schtitle24" Steidley</a>
+            <a href="#" target="_blank" class="rounded-full px-3 my-1 text-indigo-500 bg-white hover:bg-indigo-500">Jordan Burton</a>
+            <a href="#" target="_blank" class="rounded-full px-3 my-1 text-indigo-500 bg-white hover:bg-indigo-500">Luke Garnsey</a>
+            <a href="#" target="_blank" class="rounded-full px-3 my-1 text-indigo-500 bg-white hover:bg-indigo-500">Winston Steidley</a>
         </section>
     </footer>
-    <script src="MyCookbook.js"></script>
 </body>
 </html>
