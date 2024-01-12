@@ -44,6 +44,8 @@ recipesArray.forEach(function(savedRecipe, index) {
   savedRecipesDiv.append(div);
 });
 
+
+
 // Function to remove a recipe from the array and refresh the page
 function removeRecipe(index) {
   // Remove the recipe from the array one at a time (could play with more than one at a time, possibly a clear all)
