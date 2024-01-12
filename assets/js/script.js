@@ -11,10 +11,10 @@
 const recipeSearchEl = document.getElementById("recipeSearch");
 //Find Search button and setup click event
 const searchButtonEl = document.getElementById("searchBtn");
-searchButtonEl.onclick = searchRecipes;
+searchButtonEl.onclick = searchRecipesClick;
 
 //Go to Recipes page and ping API with user entered value
-function searchRecipes(event){
+function searchRecipesClick(event){
   event.preventDefault();
   const query = recipeSearchEl.value.trim();
   if(query === ""){
