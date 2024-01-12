@@ -19,7 +19,7 @@
         
     <main class="container max-w-full">
         <section class="h-40vh flex flex-col flex-wrap content-center">
-            <label for="recipeSearch" class="text-sm font-medium leading-6 text-gray-900">Type in a food and we'll find the recipe</label>
+            <label for="recipeSearch" class="content-center text-sm font-medium leading-6 text-gray-900">Type in a food and we'll find the recipe</label>
             <div class="mt-2 flex flex-wrap justify-center content-center">
                 <input type="recipeSearch" 
                     id="recipeSearch" 
@@ -33,7 +33,13 @@
                     Save
                 </button>
             </div>
+
         </section>
+        <section class="h-40vh flex flex-col flex-wrap content-center">
+            <div class="flex flex-wrap gap-2" id="chip-meal-container">
+            </div>
+        </section>
+        
     </main>
 
     <footer class="container max-w-full absolute bottom-0 h-18vh bg-indigo-600">
@@ -45,5 +51,6 @@
     </footer>
 
     <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/chips/chip-parameters.js"></script>
 </body>
 </html>
