@@ -25,18 +25,23 @@ recipesArray.forEach(function(savedRecipe, index) {
   const image = document.createElement("img");
   image.src = savedRecipe.image;
 
+  const link = document.createElement("a");
+  link.href = `recipe-detail.html?id=${savedRecipe.id}`;
+  link.appendChild(image);
+
+  // append the link to the Saved-recipes Div
+  const parentElement = document.getElementById("saved-recipes"); 
+  parentElement.appendChild(link);
+
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "Delete";
 
-  
-  
-
   // Append the recipe elements to the container
   div.append(title);
-  div.append(image);
+  div.append(link); // Append the link instead of just the image
   div.append(deleteButton);
 
-  // Add event listener to the delete button that runs the removeRecipe function
+  //Event listener to run the removeRecipe funtion at the declared index
   deleteButton.addEventListener("click", function() {
     removeRecipe(index);
   });
