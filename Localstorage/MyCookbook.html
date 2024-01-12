@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css"> 
+    <title>Online Cookbook</title>
+</head>
+<body>
+    <header class="container max-w-full max-sm:h-40 h-18vh flex flex-1 flex-wrap justify-center md:justify-end">
+        <!-- <h1 class="text-center">Online Cookbook</h1> -->
+        <div class="mt-2 flex flex-wrap justify-center content-center ">
+            <input type="recipeSearch" 
+                id="recipeSearch" 
+                name="recipeSearch" 
+                class="md:max-w-fit rounded-md border-0 bg-transparent py-1.5 mx-1 pl-1 ring-1 ring-inset ring-gray-300 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
+                placeholder="Your favorite recipe">
+
+            <button type="button" 
+                id="searchBtn"
+                class="inline-flex rounded-md bg-indigo-600 px-3 py-2 mx-1 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                Search
+            </button>
+        </div>
+        
+    </header>
+        
+    <main class="container max-w-full">
+      <div id="saved-recipes" style="display: flex; flex-wrap: wrap; width: 75%; gap: 10px;" id="recipe-div"> </div><!-- for populating with recipes -->
+    </main>
+
+    <footer class="container max-w-full absolute bottom-0 h-18vh bg-indigo-600">
+        <section class="py-1 md:px-2 flex flex-col flex-wrap content-center md:content-start">
+            <a href="#" target="_blank" class="rounded-full px-3 my-1 text-indigo-500 bg-white hover:bg-indigo-500">Jordan Burton</a>
+            <a href="#" target="_blank" class="rounded-full px-3 my-1 text-indigo-500 bg-white hover:bg-indigo-500">Luke Garnsey</a>
+            <a href="#" target="_blank" class="rounded-full px-3 my-1 text-indigo-500 bg-white hover:bg-indigo-500">Winston Steidley</a>
+        </section>
+    </footer>
+    <script src="MyCookbook.js"></script>
+</body>
+</html>

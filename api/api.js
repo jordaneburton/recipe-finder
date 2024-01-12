@@ -2,22 +2,52 @@ const apiKey = "72cb5b31608b4fde9b58b12b834a21a6";
 const apiURL = "https://api.spoonacular.com/recipes/"
 const apiKeyString = `apiKey=${apiKey}`;
 
+const USE_API = false;
+
+// For Go Home functionality -- but there is no going home
+// document.getElementById("home").onclick = (event) =>{
+// 	event.preventDefault();
+// 	document.location.replace("../index.html");
+// }
 var recentData = undefined;
 var recipesElements = [];
-document.getElementById("search").onclick = (event)=>{
+
+const recipeSearchEl = document.getElementById("recipeSearch");
+//Find Search button and setup click event
+const searchButtonEl = document.getElementById("searchBtn");
+searchButtonEl.onclick = searchRecipesClick;
+
+//Go to Recipes page and ping API with user entered value
+function searchRecipesClick(event){
   event.preventDefault();
-  console.log("click");
+  const query = recipeSearchEl.value.trim();
+  if(query === ""){
+    console.log("No Value Entered...");
+    return;
+  }
+
+	searchRecipes(query);
+}
+function searchRecipes(query){
 	const recipesDiv = document.getElementById("recipe-div");
 	for(let i = 0;i<recipesElements.length;i++){
 		console.log(recipesElements[i]);
 		recipesDiv.removeChild(recipesElements[i]);
 	}
 	recipesElements = [];
-  // complexSearch("query=chicken&includeIngredients=rice&type=main");
-  setRecipes(testDataPastaRecipes.results);
-};
-function complexSearch(query){
-  fetch(`${apiURL}complexSearch?${apiKeyString}&${query}`)
+	if(USE_API){//includeIngredients=rice&type=main
+		console.log(USE_API);
+  	complexSearch(`&query=${query}`);
+	}
+	else{
+		document.getElementById("last-query").textContent = "TestData: " + `&query=${query}`;
+  	setRecipes(testDataPastaRecipes.results);
+	}
+}
+
+function complexSearch(parameters){
+	document.getElementById("last-query").textContent = parameters;
+  fetch(`${apiURL}complexSearch?${apiKeyString}${parameters}`)
   .then(result => result.json())
   .then(function(data){
 		console.log(data);
@@ -44,13 +74,52 @@ function buildRecipe(recipeData){
   const div = document.createElement("div");
   const title = document.createElement("h1");
   const image = document.createElement("img");
+  //Creating the save buttons
+  const saveButton = document.createElement("button");
+  saveButton.textContent = "Save";
+
   div.append(title);
   div.append(image);
+  //appending the save buttons to the div
+  div.append(saveButton);
+
   title.textContent = recipeData.title;
   image.src = recipeData.image;
 	
-  return div;
+// Click event listener for save
+saveButton.addEventListener("click", function() {
+  // Create an object with the API call info
+  const savedRecipe = {
+    id: recipeData.id,
+    title: recipeData.title,
+    image: recipeData.image,
+  };
+
+  // Retrieve existing saved recipes from local storage
+  const existingRecipes = localStorage.getItem("savedRecipes");
+
+  let recipesArray;
+  if (existingRecipes) {
+    recipesArray = JSON.parse(existingRecipes);
+  } else {
+    recipesArray = [];
+  }
+
+  // Push the new recipe to the array
+  recipesArray.push(savedRecipe);
+
+  // Convert the updated array to a JSON string
+  const updatedRecipes = JSON.stringify(recipesArray);
+
+  // Store the updated JSON string in local storage
+  localStorage.setItem("savedRecipes", updatedRecipes);
+
+  console.log("Recipe saved:", savedRecipe);
+});
+
+return div;
 }
+
 const testDataPastaRecipes = {
   "results": [
 		{
@@ -118,3 +187,10 @@ const testDataPastaRecipes = {
 	"number": 10,
 	"totalResults": 261
 };
+
+//TODO think about this!!
+const query = sessionStorage.getItem("search");
+if(query !== null){
+	searchRecipes(query);
+	sessionStorage.clear();
+}
