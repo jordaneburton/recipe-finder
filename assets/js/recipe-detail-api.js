@@ -1,36 +1,35 @@
 const apiKey = "72cb5b31608b4fde9b58b12b834a21a6";
 const apiURL = "https://api.spoonacular.com/recipes/"
 const apiKeyString = `apiKey=${apiKey}`;
+const USE_API = true;
 
-const testID= [
-654959, 511728, 654883, 654944
-];
-var currentRecipeIDIndex = 0;
-document.getElementById("search").textContent = `Pull Recipe: ${testID[currentRecipeIDIndex]}`;
-document.getElementById("search").onclick = (event) =>{
-  event.preventDefault();
+//Grab the ID from URL
+const urlParams = new URLSearchParams(window.location.search);
+const recipeID = urlParams.get("id");
 
-  recipeInformation(testID[currentRecipeIDIndex]);
-  currentRecipeIDIndex++;
-  if(currentRecipeIDIndex >= testID.length)
-    currentRecipeIDIndex = 0;
+var activeIngredientEl = [];
 
-    document.getElementById("search").textContent = `Pull Recipe: ${testID[currentRecipeIDIndex]}`;
-}
 //This function takes in a 'spoonacular" recipe ID
 //Then fetches recipes info from API.
 //Then will set the recipe in HTML.
-function recipeInformation(id){
-  fetch(`${apiURL}${id}/information?${apiKeyString}`)
-  .then(result => result.json())
-  .then(function(data){
-		console.log(data);
-    setDetailRecipe(data);
-  });
+function fetchRecipeInformation(id){
+	if(id !== null && USE_API){
+		fetch(`${apiURL}${id}/information?${apiKeyString}`)
+		.then(result => result.json())
+		.then(function(data){
+			console.log(data);
+			setDetailRecipe(data);
+		});
+
+		return;
+	}
+
+	setDetailRecipe(testRecipeData);
+	const p = document.createElement("p");
+	p.textContent = "(~Test Data~" + (id === null? " ID is null)":")");
+	document.getElementById("title").append(p);
 }
 
-
-var activeIngredientEl = [];
 function setDetailRecipe(data){
   const nutritionDiv = document.getElementById("nutrition-div");
   for(let i = 0;i<activeIngredientEl.length; i++){
@@ -40,7 +39,9 @@ function setDetailRecipe(data){
 
   document.getElementById("title").textContent = data.title;
   document.getElementById("ready-in").textContent = `(Ready in ${data.readyInMinutes} mins)`;
+	document.getElementById("servings").textContent = `(Servings: ${data.servings})`;
   document.getElementById("main-image").src = data.image;
+	
   for(let i = 0;i<data.extendedIngredients.length; i++){
     const div = buildIngredient(data.extendedIngredients[i]);
     nutritionDiv.append(div);
@@ -832,4 +833,5 @@ const testRecipeData =
 	"spoonacularSourceUrl": "https://spoonacular.com/pasta-on-the-border-654857"
 };
 
-setDetailRecipe(testRecipeData);
+
+fetchRecipeInformation(recipeID);
