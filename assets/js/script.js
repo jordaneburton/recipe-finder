@@ -1,13 +1,3 @@
-// PSEUDO CODE
-// GIVEN 
-//      I load the page I am presented with an input box and a prompt to enter 
-//      my desired recipe and a ‘My Cookbook’ button in the header. 
-// WHEN 
-//      I enter my recipe into the input box 
-
-//     Input field and submit button for recipe
-//     button has listener to trigger api call
-
 const recipeSearchEl = document.getElementById("recipeSearch");
 //Find Search button and setup click event
 const searchButtonEl = document.getElementById("searchBtn");
@@ -21,9 +11,20 @@ function searchRecipesClick(event){
     console.log("No Value Entered...");
     return;
   }
+  const mealTypeChips = document.getElementById("chip-meal-container").getElementsByClassName("chip-toggle");
+  var mealTypeParam = undefined;
+  for(let i = 0;i<mealTypeChips.length;i++){
+    if(mealTypeChips[i].getAttribute("data-checked") === "true"){
+      mealTypeParam = mealTypeChips[i].textContent;
+    }
+  }
+  
   sessionStorage.setItem("search", query);
+  if(mealTypeParam !== undefined)
+    sessionStorage.setItem("type", mealTypeParam);
   document.location.replace("./search.html");
 }
+
 
 // THEN 
 //      The page displays a handful of the selected recipe types for me to read, 

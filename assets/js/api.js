@@ -2,7 +2,7 @@ const apiKey = "72cb5b31608b4fde9b58b12b834a21a6";
 const apiURL = "https://api.spoonacular.com/recipes/"
 const apiKeyString = `apiKey=${apiKey}`;
 
-const USE_API = false;
+const USE_API = true;
 
 // For Go Home functionality -- but there is no going home
 // document.getElementById("home").onclick = (event) =>{
@@ -28,6 +28,9 @@ function searchRecipesClick(event){
 
 	searchRecipes(query);
 }
+function buildMealTypeParameter(mealType){
+	return `&type=${mealType}`;
+}
 function searchRecipes(query){
 	const recipesDiv = document.getElementById("recipe-div");
 	for(let i = 0;i<recipesElements.length;i++){
@@ -36,7 +39,6 @@ function searchRecipes(query){
 	}
 	recipesElements = [];
 	if(USE_API){//includeIngredients=rice&type=main
-		console.log(USE_API);
   	complexSearch(`&query=${query}`);
 	}
 	else{
@@ -70,7 +72,7 @@ function setRecipes(data){
 }
 
 function buildRecipe(recipeData){
-	console.log(recipeData);
+	// console.log(recipeData);
   const div = document.createElement("div");
   const title = document.createElement("h1");
   const image = document.createElement("img");
@@ -189,8 +191,11 @@ const testDataPastaRecipes = {
 };
 
 //TODO think about this!!
-const query = sessionStorage.getItem("search");
+var query = sessionStorage.getItem("search");
 if(query !== null){
-	searchRecipes(query);
+	const mealType = sessionStorage.getItem("type");
+	if(mealType !== null && mealType !== undefined)
+		query += buildMealTypeParameter(mealType);
+	searchRecipes(query, "searching");
 	sessionStorage.clear();
 }
