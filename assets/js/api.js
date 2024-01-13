@@ -1,9 +1,11 @@
 const apiKey = "72cb5b31608b4fde9b58b12b834a21a6";
 const apiURL = "https://api.spoonacular.com/recipes/"
 const apiKeyString = `apiKey=${apiKey}`;
-
 const USE_API = true;
 
+//Grab the ID from URL
+const urlParams = new URLSearchParams(window.location.search);
+console.log(window.location.search);
 // For Go Home functionality -- but there is no going home
 // document.getElementById("home").onclick = (event) =>{
 // 	event.preventDefault();
@@ -16,17 +18,17 @@ const recipeSearchEl = document.getElementById("recipeSearch");
 //Find Search button and setup click event
 const searchButtonEl = document.getElementById("searchBtn");
 searchButtonEl.onclick = searchRecipesClick;
-
+recipeSearchEl.value = urlParams.get("query");
 //Go to Recipes page and ping API with user entered value
 function searchRecipesClick(event){
   event.preventDefault();
-  const query = recipeSearchEl.value.trim();
+  query = recipeSearchEl.value.trim();
   if(query === ""){
     console.log("No Value Entered...");
     return;
   }
-
-	searchRecipes(query);
+	
+	searchRecipes(`?query=${query}`);
 }
 function buildMealTypeParameter(mealType){
 	return `&type=${mealType}`;
@@ -39,7 +41,7 @@ function searchRecipes(query){
 	}
 	recipesElements = [];
 	if(USE_API){//includeIngredients=rice&type=main
-  	complexSearch(`&query=${query}`);
+  	complexSearch(query);
 	}
 	else{
 		document.getElementById("last-query").textContent = "TestData: " + `&query=${query}`;
@@ -48,8 +50,8 @@ function searchRecipes(query){
 }
 
 function complexSearch(parameters){
-	document.getElementById("last-query").textContent = parameters;
-  fetch(`${apiURL}complexSearch?${apiKeyString}${parameters}`)
+	document.getElementById("last-query").textContent = `${apiURL}complexSearch${(parameters.length > 0?parameters+ "&":"?")}${apiKeyString}`;
+  fetch(`${apiURL}complexSearch${(parameters.length > 0?parameters + "&":"?")}${apiKeyString}`)
   .then(result => result.json())
   .then(function(data){
 		console.log(data);
@@ -190,12 +192,5 @@ const testDataPastaRecipes = {
 	"totalResults": 261
 };
 
-//TODO think about this!!
-var query = sessionStorage.getItem("search");
-if(query !== null){
-	const mealType = sessionStorage.getItem("type");
-	if(mealType !== null && mealType !== undefined)
-		query += buildMealTypeParameter(mealType);
-	searchRecipes(query, "searching");
-	sessionStorage.clear();
-}
+
+searchRecipes(window.location.search);
