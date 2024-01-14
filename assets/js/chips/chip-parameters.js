@@ -2,6 +2,7 @@ const chipBase = ["chip-toggle","cursor-pointer", "relative", "grid", "select-no
 const chipSelected = ["border", "border-gray-900", "text-gray-700"];
 const chipNotSelected = ["bg-gray-900/10", "text-gray-900"];
 const mealTypes = ["main course", "side dish", "dessert", "appetizer", "salad", "bread", "breakfast", "soup", "beverage", "sauce", "marinade","fingerfood", "snack", "drink"];
+const diet = ["Gluten Free", "Ketogenic", "Vegetarian", "Lacto-Vegetarian", "Ovo-Vegetarian", "Vegan", "Pescetarian", "Primal", "Low FODMAP", "Whole30"];
 
 //Call from HTML when script is loaded to setup chip nodes and callbacks
 //valueType = array/api type chips will be based on
@@ -9,7 +10,9 @@ const mealTypes = ["main course", "side dish", "dessert", "appetizer", "salad", 
 //containerID = Container ID chips will be loaded into.
 function onLoad(valueType, containerID, chipSelectorType){
   if(valueType === "mealType"){
-    loadMealType(chipSelectorType, containerID);
+    loadMealType(mealTypes, chipSelectorType, containerID);
+  } else if(valueType === "diet"){
+    loadMealType(diet, chipSelectorType, containerID);
   }
 }
 function setNodesWithURL(value, containerID){
@@ -48,16 +51,16 @@ function setChipFalse(chip){
   chip.setAttribute("data-checked", "false");
 }
 
-function loadMealType(chipSelectorType, containerID){
+function loadMealType(typeList, chipSelectorType, containerID){
   const chipMealContainer = document.getElementById(containerID);
   const chipNodeList = [];
   if(chipSelectorType === "collapse"){
-    mealTypes.unshift("None");
+    typeList.unshift("None");
   }
-  for(let i = 0;i<mealTypes.length;i++){
+  for(let i = 0;i<typeList.length;i++){
     const chip = document.createElement("div");
     const span = document.createElement("span");
-    span.textContent = mealTypes[i];
+    span.textContent = typeList[i];
     chip.append(span);
     chip.setAttribute("data-checked", "false");
     chipBase.forEach((item)=>{
@@ -68,7 +71,9 @@ function loadMealType(chipSelectorType, containerID){
     });
     if(chipSelectorType === "collapse"){
       chip.onclick = (event) =>{ collapseSelectEvent(chip, chipNodeList); }
-    }else{
+    } else if (chipSelectorType === "multi"){
+      chip.onclick = (event) =>{ multiSelectEvent(chip); };
+    } else {
       chip.onclick = (event) =>{ standardSelectEvent(chip, chipNodeList); }
     }
     
@@ -110,6 +115,15 @@ function collapseSelectEvent(chip, chipNodeList){
       element.classList.add("hidden");
     }
   });
+}
+function multiSelectEvent(chip){
+    if(chip.getAttribute("data-checked") === "true"){
+      setChipFalse(chip);
+      chip.setAttribute("data-checked", "false");
+    }else{
+      setChipTrue(chip);
+      chip.setAttribute("data-checked", "true");
+    }
 }
 //TOGGLE SINGLE
 // chip.onclick = (event)=>{

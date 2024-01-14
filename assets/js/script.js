@@ -3,6 +3,7 @@ const recipeSearchEl = document.getElementById("recipeSearch");
 const searchButtonEl = document.getElementById("searchBtn");
 searchButtonEl.onclick = searchRecipesClick;
 
+const parameterList = [];
 //Go to Recipes page and ping API with user entered value
 function searchRecipesClick(event){
   event.preventDefault();
@@ -11,20 +12,43 @@ function searchRecipesClick(event){
     console.log("No Value Entered...");
     return;
   }
-  const mealTypeChips = document.getElementById("chip-meal-type").getElementsByClassName("chip-toggle");
-  var mealTypeParam = "";
-  for(let i = 0;i<mealTypeChips.length;i++){
-    if(mealTypeChips[i].getAttribute("data-checked") === "true"){
-      mealTypeParam = mealTypeChips[i].textContent;
+  var queryParams = "";
+  for(let i = 0;i<parameterList.length;i++){
+    const chips = document.getElementById(parameterList[i].containerID).getElementsByClassName("chip-toggle");
+    console.log(chips);
+    for(let index = 0;index<chips.length; index++){
+      if(chips[index].getAttribute("data-checked") === "true"){
+        if(parameterList[i].paramValue !== "")
+          parameterList[i].paramValue = `${parameterList[i].paramValue},${chips[index].textContent}`;
+        else
+          parameterList[i].paramValue = chips[index].textContent;
+      }
     }
+    if(parameterList[i].paramValue !== "")
+      queryParams = `${queryParams}&${parameterList[i].name}=${parameterList[i].paramValue}`;
   }
+  // const mealTypeChips = document.getElementById("chip-meal-container").getElementsByClassName("chip-toggle");
+  // var mealTypeParam = "";
+  // for(let i = 0;i<mealTypeChips.length;i++){
+  //   if(mealTypeChips[i].getAttribute("data-checked") === "true"){
+  //     mealTypeParam = mealTypeChips[i].textContent;
+  //   }
+  // }
   
-  sessionStorage.setItem("search", query);
-  if(mealTypeParam !== "")
-    mealTypeParam = `&type=${mealTypeParam}`;
+  // sessionStorage.setItem("search", query);
+  // if(mealTypeParam !== "")
+  //   mealTypeParam = `&type=${mealTypeParam}`;
 
   
-  document.location.replace(`./search.html?query=${query}${mealTypeParam}`);
+  document.location.replace(`./search.html?query=${query}${queryParams}`);
+}
+
+function setParameterCheck(paramName, containerID){
+  parameterList.push({
+    "name":paramName,
+    "paramValue": "",
+    "containerID":containerID
+  });
 }
 
 

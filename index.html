@@ -27,7 +27,7 @@
       
     
     <main class="container max-w-full">
-        <section class="h-40vh flex flex-col flex-wrap content-center">
+        <section class="h-20vh flex flex-col flex-wrap content-center">
             <label for="recipeSearch" class="text-lg text-center mb-2 font-medium leading-6 text-gray-900">Type in a food and we'll find the recipe</label>
             <div class="mt-2 flex flex-wrap justify-center content-center">
                 <input type="recipeSearch" 
@@ -44,9 +44,12 @@
             </div>
 
         </section>
-        <section class="h-40vh flex flex-col flex-wrap content-center">
-            
-            <div class="flex flex-wrap gap-2"   id="chip-meal-type">
+        <section class="h-20vh flex flex-col flex-wrap content-center">
+            <h1>Meal Type: </h1>
+            <div class="flex flex-wrap gap-2"   id="chip-meal-container">
+            </div>
+            <h1>Diet: </h1>
+            <div class="flex flex-wrap gap-2"   id="chip-diet-container">
             </div>
         </section>
         
@@ -60,7 +63,7 @@
         </section>
     </footer>
 
-    <script src="./assets/js/script.js"></script>
-    <script src="./assets/js/chips/chip-parameters.js" onload="onLoad('mealType', 'chip-meal-type'); setNodesWithURL('mealType', 'chip-meal-type');"></script>
+    <script src="./assets/js/script.js" onload="setParameterCheck('type', 'chip-meal-container'); setParameterCheck('diet','chip-diet-container');"></script>
+    <script src="./assets/js/chips/chip-parameters.js" onload="onLoad('mealType', 'chip-meal-container'); onLoad('diet', 'chip-diet-container', 'multi'); setNodesWithURL('mealType', 'chip-meal-container');"></script>
 </body>
 </html>
