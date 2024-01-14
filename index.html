@@ -45,7 +45,8 @@
 
         </section>
         <section class="h-40vh flex flex-col flex-wrap content-center">
-            <div class="flex flex-wrap gap-2" id="chip-meal-container">
+            
+            <div class="flex flex-wrap gap-2"   id="chip-meal-type">
             </div>
         </section>
         
@@ -60,6 +61,6 @@
     </footer>
 
     <script src="./assets/js/script.js"></script>
-    <script src="./assets/js/chips/chip-parameters.js"></script>
+    <script src="./assets/js/chips/chip-parameters.js" onload="onLoad('chip-meal-type'); setNodesWithURL('chip-meal-type');"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@ function searchRecipesClick(event){
     console.log("No Value Entered...");
     return;
   }
-  const mealTypeChips = document.getElementById("chip-meal-container").getElementsByClassName("chip-toggle");
+  const mealTypeChips = document.getElementById("chip-meal-type").getElementsByClassName("chip-toggle");
   var mealTypeParam = "";
   for(let i = 0;i<mealTypeChips.length;i++){
     if(mealTypeChips[i].getAttribute("data-checked") === "true"){

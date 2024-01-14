@@ -20,8 +20,8 @@
             </svg>  
         </span>
     </a>
-
-    <div class="mt-2 flex flex-nowrap justify-end content-center mx-2 w-5/6 md:w-2/5">
+    <div class="mt-2 justify-end content-center mx-2 w-5/6 md:w-2/5">
+      <div class="flex flex-nowrap">
         <input type="recipeSearch" 
             id="recipeSearch" 
             name="recipeSearch" 
@@ -33,6 +33,15 @@
             class="inline-flex rounded-full bg-lime-500 px-3 py-2 mx-1 text-center text-lg font-semibold text-white shadow-sm hover:bg-lime-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-600">
             Find
         </button>
+      </div>
+      <section class="h-40vh flex flex-nowrap content-center gap-3 py-2">
+        <h1 class="min-w-fit">Meal Type:</h1>
+        <div class="flex flex-col flex-wrap content-center">
+          <div class="flex flex-wrap gap-2" id="chip-meal-type">
+            
+          </div>
+        </div>
+      </section>
     </div>
     
   </header>
@@ -51,5 +60,6 @@
     </section>
   </footer>
   <script src="./assets/js/api.js"></script>
+  <script src="./assets/js/chips/chip-parameters.js" onload="onLoad('chip-meal-type', 'collapse'); setNodesWithURL('chip-meal-type');"></script>
 </body>
 </html>
