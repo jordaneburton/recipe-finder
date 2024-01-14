@@ -4,16 +4,19 @@ const chipNotSelected = ["bg-gray-900/10", "text-gray-900"];
 const mealTypes = ["main course", "side dish", "dessert", "appetizer", "salad", "bread", "breakfast", "soup", "beverage", "sauce", "marinade","fingerfood", "snack", "drink"];
 
 //Call from HTML when script is loaded to setup chip nodes and callbacks
-function onLoad(value, menuType){
-  if(value === "chip-meal-type"){
-    loadMealType(menuType);
+//valueType = array/api type chips will be based on
+//chipSelectorType = What type of display/click event toggles the chips will have.
+//containerID = Container ID chips will be loaded into.
+function onLoad(valueType, containerID, chipSelectorType){
+  if(valueType === "mealType"){
+    loadMealType(chipSelectorType, containerID);
   }
 }
-function setNodesWithURL(value){
+function setNodesWithURL(value, containerID){
+  const chipContainer = document.getElementById(containerID);
   const urlParams = new URLSearchParams(window.location.search);
-  if(value === "chip-meal-type"){
-    const chipMealContainer = document.getElementById("chip-meal-type");
-    const chips = chipMealContainer.getElementsByClassName("chip-toggle");
+  if(value === "mealType"){
+    const chips = chipContainer.getElementsByClassName("chip-toggle");
     var typeParam = urlParams.get("type");
     if(typeParam === null)
       typeParam = "None";
@@ -45,10 +48,10 @@ function setChipFalse(chip){
   chip.setAttribute("data-checked", "false");
 }
 
-function loadMealType(menuType){
-  const chipMealContainer = document.getElementById("chip-meal-type");
+function loadMealType(chipSelectorType, containerID){
+  const chipMealContainer = document.getElementById(containerID);
   const chipNodeList = [];
-  if(menuType === "collapse"){
+  if(chipSelectorType === "collapse"){
     mealTypes.unshift("None");
   }
   for(let i = 0;i<mealTypes.length;i++){
@@ -63,7 +66,7 @@ function loadMealType(menuType){
     chipNotSelected.forEach(item =>{
       chip.classList.add(item)
     });
-    if(menuType === "collapse"){
+    if(chipSelectorType === "collapse"){
       chip.onclick = (event) =>{ collapseSelectEvent(chip, chipNodeList); }
     }else{
       chip.onclick = (event) =>{ standardSelectEvent(chip, chipNodeList); }
