@@ -12,7 +12,7 @@ function searchRecipesClick(event){
     return;
   }
   const mealTypeChips = document.getElementById("chip-meal-container").getElementsByClassName("chip-toggle");
-  var mealTypeParam = undefined;
+  var mealTypeParam = "";
   for(let i = 0;i<mealTypeChips.length;i++){
     if(mealTypeChips[i].getAttribute("data-checked") === "true"){
       mealTypeParam = mealTypeChips[i].textContent;
@@ -20,9 +20,11 @@ function searchRecipesClick(event){
   }
   
   sessionStorage.setItem("search", query);
-  if(mealTypeParam !== undefined)
-    sessionStorage.setItem("type", mealTypeParam);
-  document.location.replace("./search.html");
+  if(mealTypeParam !== "")
+    mealTypeParam = `&type=${mealTypeParam}`;
+
+  
+  document.location.replace(`./search.html?query=${query}${mealTypeParam}`);
 }
 
 
