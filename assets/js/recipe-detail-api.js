@@ -2,6 +2,7 @@ const apiKey = "72cb5b31608b4fde9b58b12b834a21a6";
 const apiURL = "https://api.spoonacular.com/recipes/"
 const apiKeyString = `apiKey=${apiKey}`;
 
+
 const testID= [
 654959, 511728, 654883, 654944
 ];
@@ -31,6 +32,10 @@ function recipeInformation(id){
 
 
 var activeIngredientEl = [];
+//array for multiple ingredients to be stored in
+let checkedIngredients = [];
+
+
 function setDetailRecipe(data){
   const nutritionDiv = document.getElementById("nutrition-div");
   for(let i = 0;i<activeIngredientEl.length; i++){
@@ -69,8 +74,37 @@ function buildIngredient(data){
     div.style.paddingBottom = "5px";
     div.style.border = "2px dotted black";
     div.style.maxWidth = "100%";
+    
+    // checkbox to save an ingredient to the local storage
+    const checkBox = document.createElement("input");
+    checkBox.type = "checkbox";
+    div.append(checkBox);
+    
+
+
+
+    // event listener to trigger, using an if else if so that they can uncheck items. 
+    checkBox.addEventListener("change", function() {
+      if (this.checked) {
+        checkedIngredients.push(data.original);
+        console.log("added:", data.original);
+      } else {
+        const index = checkedIngredients.indexOf(data.original);
+        if (index > -1) {
+          checkedIngredients.splice(index, 1);
+          console.log("removed:", data.original);
+        }
+      }
+      localStorage.setItem("checkedIngredients", JSON.stringify(checkedIngredients));
+      console.log("Updated checkedIngredients in local storage:", checkedIngredients);
+    });
+    
     return div;
 }
+
+
+
+
 
 const testRecipeData =
 {
