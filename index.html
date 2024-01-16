@@ -8,42 +8,58 @@
     <title>Online Cookbook</title>
 </head>
 <body>
-    <header class="container max-w-full h-40vh flex flex-wrap justify-center content-center">
-        <h1 class="text-center">Online Cookbook</h1>
-        <a href="saved.html" 
+    <header class="container max-w-full h-40vh flex flex-col flex-wrap justify-end content-center">
+        <h1 class="text-center text-lg">Welcome to the Online Cookbook!</h1>
+        <p class="text-center text-md md:w-1/3 xl:1/5 mt-2 mb-5">Here you can find various recipes for your favorite foods, including a list of ingredients and the preparation time</p>
+        <a href="./Localstorage/MyCookbook.html" 
             id="myRecipesBtn"
-            class="fixed top-0 left-0 w-1/3 md:w-1/4 lg:w-auto rounded-br-lg bg-indigo-600 px-3 py-2 text-sm font-semibold text-white text-center shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            class="fixed flex justify-center items-center top-0 left-0 w-1/2 md:w-auto h-12 md:h-auto rounded-br-full md:rounded-br-3xl bg-lime-500 px-3 py-2 text-lg font-semibold text-white text-center shadow-sm hover:bg-lime-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
             My Recipes
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 mx-2">
+                    <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                </svg>  
+            </span>
         </a>
     </header>
         
+    
+      
+    
     <main class="container max-w-full">
         <section class="h-40vh flex flex-col flex-wrap content-center">
-            <label for="recipeSearch" class="text-sm font-medium leading-6 text-gray-900">Type in a food and we'll find the recipe</label>
+            <label for="recipeSearch" class="text-lg text-center mb-2 font-medium leading-6 text-gray-900">Type in a food and we'll find the recipe</label>
             <div class="mt-2 flex flex-wrap justify-center content-center">
                 <input type="recipeSearch" 
                     id="recipeSearch" 
                     name="recipeSearch" 
-                    class="rounded-md border-0 bg-transparent py-1.5 mx-1 pl-1 ring-1 ring-inset ring-gray-300 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
+                    class="rounded-full border-0 bg-transparent p-1.5 mx-1 pl-1 ring-1 ring-inset ring-gray-300 text-center text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lime-600 sm:text-sm sm:leading-3" 
                     placeholder="Your favorite recipe">
 
                 <button type="button" 
                     id="searchBtn"
-                    class="inline-flex rounded-md bg-indigo-600 px-3 py-2 mx-1 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                    Search
+                    class="inline-flex rounded-full bg-lime-500 px-3 py-2 mx-1 text-md font-semibold text-white shadow-sm hover:bg-lime-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-600">
+                    Find
                 </button>
             </div>
+
         </section>
+        <section class="h-40vh flex flex-col flex-wrap content-center">
+            <div class="flex flex-wrap gap-2" id="chip-meal-container">
+            </div>
+        </section>
+        
     </main>
 
-    <footer class="container max-w-full absolute bottom-0 h-18vh bg-indigo-600">
-        <section class="py-1 md:px-2 flex flex-col flex-wrap content-center md:content-start">
-            <a href="https://github.com/jordaneburton" target="_blank" class="rounded-full px-3 my-1 text-indigo-500 bg-white hover:bg-indigo-500">Jordan Burton</a>
-            <a href="https://github.com/LukeGarnsey" target="_blank" class="rounded-full px-3 my-1 text-indigo-500 bg-white hover:bg-indigo-500">Luke Garnsey</a>
-            <a href="https://github.com/Schtitle24" target="_blank" class="rounded-full px-3 my-1 text-indigo-500 bg-white hover:bg-indigo-500">Winston "Schtitle24" Steidley</a>
+    <footer class="container max-w-full absolute bottom-0 h-18vh bg-lime-500">
+        <section class="py-1 md:px-2 flex flex-col flex-wrap content-center md:content-start text-center md:text-start">
+            <a href="https://github.com/jordaneburton" target="_blank" class="rounded-full px-3 my-1 text-lime-600 bg-white hover:bg-lime-300">Jordan Burton</a>
+            <a href="https://github.com/LukeGarnsey" target="_blank" class="rounded-full px-3 my-1 text-lime-600 bg-white hover:bg-lime-300">Luke Garnsey</a>
+            <a href="https://github.com/Schtitle24" target="_blank" class="rounded-full px-3 my-1 text-lime-600 bg-white hover:bg-lime-300">Winston "Schtitle24" Steidley</a>
         </section>
     </footer>
 
     <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/chips/chip-parameters.js"></script>
 </body>
 </html>
