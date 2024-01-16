@@ -4,10 +4,14 @@ function fetchComplexSearch(parameters, callback){
   if(USE_API){
 		console.log(`complexSearch${(parameters.length > 0?parameters + "&":"?")}${apiKeyString}`);
     fetch(`${apiURL}complexSearch${(parameters.length > 0?parameters + "&":"?")}${apiKeyString}`)
-    .then(result => result.json())
+    .then(result => {
+			if(result.status === 200)
+				return result.json();
+			else{
+				return testDataPastaRecipes;
+			}
+		})
     .then(function(data){
-      console.log(data);
-      // setRecipes(data.results);
       callback(data.results);
     });
   }else{

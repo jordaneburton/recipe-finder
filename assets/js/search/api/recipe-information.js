@@ -5,9 +5,15 @@
 function fetchRecipeInformation(id, callback){
 	if(id !== null && USE_API){
 		fetch(`${apiURL}${id}/information?${apiKeyString}`)
-		.then(result => result.json())
-		.then(function(data){
-			console.log(data);
+		.then(result => {
+			if(result.status === 200)
+				return result.json();
+			else{
+				return testRecipeData;
+			}
+		}
+		).then(function(data){
+			// console.log(data);
 			callback(data);
 		});
 
