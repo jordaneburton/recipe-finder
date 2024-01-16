@@ -47,19 +47,17 @@ function searchRecipes(query){
   	complexSearch(query);
 	}
 	else{
-		document.getElementById("last-query").textContent = "TestData: " + `&query=${query}`;
-  	setRecipes(testDataPastaRecipes.results);
+		setRecipes(testDataPastaRecipes.results);
 	}
 }
 
 function complexSearch(parameters){
-	document.getElementById("last-query").textContent = `${apiURL}complexSearch${(parameters.length > 0?parameters+ "&":"?")}${apiKeyString}`;
-  fetch(`${apiURL}complexSearch${(parameters.length > 0?parameters + "&":"?")}${apiKeyString}`)
-  .then(result => result.json())
-  .then(function(data){
-		console.log(data);
-    setRecipes(data.results);
-  });
+	fetch(`${apiURL}complexSearch${(parameters.length > 0?parameters + "&":"?")}${apiKeyString}`)
+	.then(result => result.json())
+	.then(function(data){
+			console.log(data);
+		setRecipes(data.results);
+	});
 }
 function complexSearchResults(result){
   return result.json();
