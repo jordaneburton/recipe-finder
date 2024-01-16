@@ -8,9 +8,9 @@ function buildParameters(){
                 continue;
             if(chips[index].getAttribute("data-checked") === "true"){
                 if(parameterList[i].paramValue !== "")
-                    parameterList[i].paramValue = `${parameterList[i].paramValue},${chips[index].textContent}`;
+                    parameterList[i].paramValue = `${parameterList[i].paramValue},${chips[index].textContent.toLowerCase()}`;
                 else
-                    parameterList[i].paramValue = chips[index].textContent;
+                    parameterList[i].paramValue = chips[index].textContent.toLowerCase();
             }
         }
         if(parameterList[i].paramValue !== "")
