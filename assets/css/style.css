@@ -4,12 +4,7 @@
 
 .header-mobile {
     height: 11rem;
-    margin-bottom: 1rem;
-}
-
-.half-header {
-    height: 7rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .h-18vh {
@@ -19,15 +14,6 @@
 @media (min-width: 768px) {
     .header-mobile {
         height: 7rem;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
     }
-
-    .half-header {
-        height: 4rem;
-        margin-bottom: 1rem;
-    }
-}
-
-main {
-    z-index: 0;
 }
