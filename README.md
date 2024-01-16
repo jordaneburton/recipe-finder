@@ -11,7 +11,11 @@ For this application we used HTML to build out the structure of our pages as wel
   1. Dependencies
   2. Usage
      - Home Page
-     - 
+     - Recipe Search Page
+     - My Recipe Page
+     - Detailed Ingredients Page
+     - Grocery List Page
+  3. 
 
 ### Dependencies
 
@@ -43,7 +47,14 @@ Each recipe will have a star in the top right, clicking this star will save the 
 ### My Recipe Page
 ![Saved Recipes](https://github.com/jordaneburton/recipe-finder/assets/153530625/27f37dcf-386e-4adb-bc6f-3f679c7b7ca0)
 
+Upon navigating to the "My Recipe" page you will be presented with the recipes that you chose to save.These recipes will be populating using the local storage to grab the ID, Title, and Image of the recipe from your search and then displaying them here.  Each recipe will have an "X" in the top right of the card. Clicking on this will delete from the stored array of objects and remove it from your page entirely. If you wish to add it back, in the current version, you must find it through the search and add it back to your saved recipes. 
 
+Our footer remains the same, enabling you to view the Github profiles of the original creators. 
+
+Lastly, clicking on the image of a recipe will take you to its detailed ingredient list! 
+
+### Detailed Ingredients Page
+![Detailed Ingredients](https://github.com/jordaneburton/recipe-finder/assets/153530625/452d30f1-6f1c-45ec-9caf-d0683a99fb81)
 
 ## Authors
 
