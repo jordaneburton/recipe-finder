@@ -30,8 +30,9 @@ function searchRecipesClick(event){
 		console.log("No Value Entered...");
 		return;
 	}
-	
-	searchRecipes(`?query=${query}${buildParameters()}`);
+	const fullQuery = `?query=${query}${buildParameters()}`;
+	// console.log(fullQuery);
+	searchRecipes(fullQuery);
 }
 function buildMealTypeParameter(mealType){
 	return `&type=${mealType}`;
