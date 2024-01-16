@@ -2,6 +2,10 @@
     height: 40vh;
 }
 
+.max-32vh {
+    max-height: 32vh;
+}
+
 .h-18vh {
     max-height: 18vh;
 }
