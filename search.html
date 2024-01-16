@@ -9,7 +9,7 @@
 </head>
 <body class="min-h-screen flex flex-col">
   <header class="container max-w-full header-mobile flex flex-wrap justify-center md:justify-end items-end md:items-start">
-    <a href="./Localstorage/MyCookbook.html" 
+    <a href="./saved.html" 
       id="myRecipesBtn"
       class="fixed flex justify-center items-center top-0 left-0 w-3/5 md:w-auto h-12 md:h-auto rounded-br-full md:rounded-br-3xl bg-lime-500 px-3 py-2 text-xl font-semibold text-white text-center shadow-sm hover:bg-lime-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-600">
       My Recipes
@@ -45,23 +45,26 @@
             Find
         </button>
       </div>
-      <section class="h-20vh hidden md:flex flex-nowrap content-center gap-3 py-2">
-        <h1 class="min-w-24 text-right">Meal Type:</h1>
-        <div class="flex flex-col flex-wrap content-center">
-          <div class="flex flex-wrap gap-2" id="chip-meal-container">
-            
+      <!-- This is Search Parameter content -->
+      <div class="bg-lime-500 p-1 my-2">
+        <section class="h-20vh hidden md:flex flex-nowrap content-center gap-3 py-2 m-1 bg-lime-400">
+          <h1 class="min-w-24 text-right">Meal Type:</h1>
+          <div class="flex flex-col flex-wrap content-center pr-2">
+            <div class="flex flex-wrap gap-2 bg-lime-300 p-2" id="chip-meal-container">
+              
+            </div>
           </div>
-        </div>
-      </section>
-
-      <section class="h-20vh hidden md:flex flex-nowrap content-center gap-3 py-2">
-        <h1 class="min-w-24 text-right">Diet:</h1>
-        <div class="flex flex-col flex-wrap content-center">
-          <div class="flex flex-wrap gap-2" id="chip-diet-container">
-            
+        </section>
+        <section class="h-20vh hidden md:flex flex-nowrap content-center gap-3 py-2 m-1 bg-lime-400">
+          <h1 class="min-w-24 text-right">Diet:</h1>
+          <div class="flex flex-col flex-wrap content-center pr-2">
+            <div class="flex flex-wrap gap-2 bg-lime-300 p-2" id="chip-diet-container">
+              
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
+      <!-- ------------------ -->
     </div>
     
   </header>
@@ -78,8 +81,13 @@
         <a href="https://github.com/Schtitle24" target="_blank" class="rounded-full px-3 my-1 text-lime-600 bg-white hover:bg-lime-300">Winston "Schtitle24" Steidley</a>
     </section>
   </footer>
+  <script src="./assets/js/search/api/settings.js"></script>
   <script src="./assets/js/chips/build-parameters.js" onload="setAPIParameterCheck('type', 'chip-meal-container'); setAPIParameterCheck('diet','chip-diet-container');"></script>
-  <script src="./assets/js/api.js" onload="onLoad()"></script>
-  <script src="./assets/js/chips/chip-parameters.js" onload="onLoad('mealType', 'chip-meal-container', 'collapse'); onLoad('diet', 'chip-diet-container', 'multi'); setChipsWithURLParams('type', 'chip-meal-container'); setChipsWithURLParams('diet', 'chip-diet-container');"></script>
+
+  <script src="./assets/js/search/api/complex-search.js"></script>
+  <script src="./assets/js/search/search-bar.js" onload="onLoad('recipe-div');"></script>
+  
+
+  <script src="./assets/js/chips/chip-parameters.js" onload="onLoad('mealType', 'chip-meal-container', ''); onLoad('diet', 'chip-diet-container', 'multi'); setChipsWithURLParams('type', 'chip-meal-container'); setChipsWithURLParams('diet', 'chip-diet-container');"></script>
 </body>
 </html>
