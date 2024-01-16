@@ -13,7 +13,6 @@ function fetchRecipeInformation(id, callback){
 			}
 		}
 		).then(function(data){
-			// console.log(data);
 			callback(data);
 		});
 
