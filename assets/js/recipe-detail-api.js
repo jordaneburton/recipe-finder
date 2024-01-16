@@ -1,12 +1,29 @@
 var activeIngredientEl = [];
 
-function onLoad(){
-	const urlParams = new URLSearchParams(window.location.search);
-	const recipeID = urlParams.get("id");
+//This function takes in a 'spoonacular" recipe ID
+//Then fetches recipes info from API.
+//Then will set the recipe in HTML.
+function fetchRecipeInformation(id){
+	if(id !== null && USE_API){
+		fetch(`${apiURL}${id}/information?${apiKeyString}`)
+		.then(result => result.json())
+		.then(function(data){
+			console.log(data);
+			setDetailRecipe(data);
+		});
 
-	//Call is to --> 'recipe-information.js'
-	fetchRecipeInformation(recipeID, setDetailRecipe);
+		return;
+	}
+
+	setDetailRecipe(testRecipeData);
+	const p = document.createElement("p");
+	p.textContent = "(~Test Data~" + (id === null? " ID is null)":")");
+	document.getElementById("title").append(p);
 }
+
+//array for multiple ingredients to be stored in
+let checkedIngredients = [];
+
 
 function setDetailRecipe(data){
   const nutritionDiv = document.getElementById("nutrition-div");
@@ -48,5 +65,30 @@ function buildIngredient(data){
     div.style.paddingBottom = "5px";
     div.style.border = "2px dotted black";
     div.style.maxWidth = "100%";
+    
+    // checkbox to save an ingredient to the local storage
+    const checkBox = document.createElement("input");
+    checkBox.type = "checkbox";
+    div.append(checkBox);
+    
+
+
+
+    // event listener to trigger, using an if else if so that they can uncheck items. 
+    checkBox.addEventListener("change", function() {
+      if (this.checked) {
+        checkedIngredients.push(data.original);
+        console.log("added:", data.original);
+      } else {
+        const index = checkedIngredients.indexOf(data.original);
+        if (index > -1) {
+          checkedIngredients.splice(index, 1);
+          console.log("removed:", data.original);
+        }
+      }
+      localStorage.setItem("checkedIngredients", JSON.stringify(checkedIngredients));
+      console.log("Updated checkedIngredients in local storage:", checkedIngredients);
+    });
+    
     return div;
 }
