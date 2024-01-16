@@ -1,29 +1,11 @@
 var activeIngredientEl = [];
 
-//This function takes in a 'spoonacular" recipe ID
-//Then fetches recipes info from API.
-//Then will set the recipe in HTML.
-function fetchRecipeInformation(id){
-	if(id !== null && USE_API){
-		fetch(`${apiURL}${id}/information?${apiKeyString}`)
-		.then(result => result.json())
-		.then(function(data){
-			console.log(data);
-			setDetailRecipe(data);
-		});
-
-		return;
-	}
-
-	setDetailRecipe(testRecipeData);
-	const p = document.createElement("p");
-	p.textContent = "(~Test Data~" + (id === null? " ID is null)":")");
-	document.getElementById("title").append(p);
+function onLoad(){
+  fetchRecipeInformation(new URLSearchParams(window.location.search).get("id"), setDetailRecipe);
 }
 
 //array for multiple ingredients to be stored in
 let checkedIngredients = [];
-
 
 function setDetailRecipe(data){
   const nutritionDiv = document.getElementById("nutrition-div");
