@@ -5,7 +5,7 @@ const USE_API = true;
 
 //Grab the ID from URL
 const urlParams = new URLSearchParams(window.location.search);
-console.log(window.location.search);
+// console.log(window.location.search);
 // For Go Home functionality -- but there is no going home
 // document.getElementById("home").onclick = (event) =>{
 // 	event.preventDefault();
@@ -14,21 +14,25 @@ console.log(window.location.search);
 var recentData = undefined;
 var recipesElements = [];
 
-const recipeSearchEl = document.getElementById("recipeSearch");
-//Find Search button and setup click event
-const searchButtonEl = document.getElementById("searchBtn");
-searchButtonEl.onclick = searchRecipesClick;
-recipeSearchEl.value = urlParams.get("query");
+function onLoad(){
+	
+	document.getElementById("recipeSearch").value = urlParams.get("query");
+	//Find Search button and setup click event
+	document.getElementById("searchBtn").onclick = searchRecipesClick;
+
+	searchRecipes(window.location.search);
+}
 //Go to Recipes page and ping API with user entered value
 function searchRecipesClick(event){
-  event.preventDefault();
-  query = recipeSearchEl.value.trim();
-  if(query === ""){
-    console.log("No Value Entered...");
-    return;
-  }
-	
-	searchRecipes(`?query=${query}`);
+	event.preventDefault();
+	query = document.getElementById("recipeSearch").value.trim();
+	if(query === ""){
+		console.log("No Value Entered...");
+		return;
+	}
+	const fullQuery = `?query=${query}${buildParameters()}`;
+	// console.log(fullQuery);
+	searchRecipes(fullQuery);
 }
 function buildMealTypeParameter(mealType){
 	return `&type=${mealType}`;
@@ -37,26 +41,24 @@ function searchRecipes(query){
 	const recipesDiv = document.getElementById("recipe-div");
 	for(let i = 0;i<recipesElements.length;i++){
 		console.log(recipesElements[i]);
-		recipesDiv.removeChild(recipesElements[i]);
+		recipesDiv.removeChild(recipesElements[i]); 
 	}
 	recipesElements = [];
 	if(USE_API){//includeIngredients=rice&type=main
   	complexSearch(query);
 	}
 	else{
-		document.getElementById("last-query").textContent = "TestData: " + `&query=${query}`;
-  	setRecipes(testDataPastaRecipes.results);
+		setRecipes(testDataPastaRecipes.results);
 	}
 }
 
 function complexSearch(parameters){
-	document.getElementById("last-query").textContent = `${apiURL}complexSearch${(parameters.length > 0?parameters+ "&":"?")}${apiKeyString}`;
-  fetch(`${apiURL}complexSearch${(parameters.length > 0?parameters + "&":"?")}${apiKeyString}`)
-  .then(result => result.json())
-  .then(function(data){
-		console.log(data);
-    setRecipes(data.results);
-  });
+	fetch(`${apiURL}complexSearch${(parameters.length > 0?parameters + "&":"?")}${apiKeyString}`)
+	.then(result => result.json())
+	.then(function(data){
+			console.log(data);
+		setRecipes(data.results);
+	});
 }
 function complexSearchResults(result){
   return result.json();
@@ -191,6 +193,3 @@ const testDataPastaRecipes = {
 	"number": 10,
 	"totalResults": 261
 };
-
-
-searchRecipes(window.location.search);
