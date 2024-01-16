@@ -54,7 +54,19 @@ Our footer remains the same, enabling you to view the Github profiles of the ori
 Lastly, clicking on the image of a recipe will take you to its detailed ingredient list! 
 
 ### Detailed Ingredients Page
-![Detailed Ingredients](https://github.com/jordaneburton/recipe-finder/assets/153530625/452d30f1-6f1c-45ec-9caf-d0683a99fb81)
+![Detailed Ingredients](https://github.com/jordaneburton/recipe-finder/assets/153530625/c20d5e34-e2bd-4768-b640-4290cef4c96f)
+
+Upon navigating to the Detailed Ingredients Page by clicking on a recipe from "My Recipes" you will see the page above. The page should retain the "My Recipe" and "Groceries" buttons in the top left of your page. As well as the search and filter options in the top right of your page. 
+
+In the main body you will see the name of your dish, the cook time of your dish, and the serving size of your dish. Below that the image of the dish (if availabale). Then a list of the ingredients alongside images of the ingredients. Each ingredient will have a checkbox tied to it, clicking this checkbox will save the ingredient into your local storage to display on your "Groceries" page. Unchecking a box will remove it from local storage as to not display an un-needed ingredient. 
+
+Once you have checked the ingredients you will need to buy in order to make your recipe. Click the "Groceries" button! 
+
+### Groceries Page
+![grocery list](https://github.com/jordaneburton/recipe-finder/assets/153530625/76308a2b-cd1a-43c3-9d56-a1096d9c3d00)
+
+Upon navigation to the "Groceries Page" you will be presented with a list of the ingredients you saved on the "Detailed Ingredients Page". There should only be one ingredient per line. You will also see a button to copy the list of ingredients. When you click the button it should copy the list of ingredients to your clipboard for you to paste wherever you would like. 
+
 
 ## Authors
 
