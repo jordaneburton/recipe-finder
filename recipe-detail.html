@@ -36,22 +36,24 @@
         </button>
       </div>
       <!-- This is Search Parameter content -->
-      <section class="h-20vh flex flex-nowrap content-center gap-3 py-2">
-        <h1 class="min-w-24 text-right">Meal Type:</h1>
-        <div class="flex flex-col flex-wrap content-center">
-        <div class="flex flex-wrap gap-2" id="chip-meal-container">
-            
-        </div>
-        </div>
-      </section>
-      <section class="h-20vh flex flex-nowrap content-center gap-3 py-2">
-          <h1 class="min-w-24 text-right">Diet:</h1>
-          <div class="flex flex-col flex-wrap content-center">
-          <div class="flex flex-wrap gap-2" id="chip-diet-container">
+      <div class="bg-lime-500 p-1 my-2">
+        <section class="h-20vh flex flex-nowrap content-center gap-3 py-2 m-1 bg-lime-400">
+          <h1 class="min-w-24 text-right">Meal Type:</h1>
+          <div class="flex flex-col flex-wrap content-center pr-2">
+            <div class="flex flex-wrap gap-2 bg-lime-300 p-2" id="chip-meal-container">
               
+            </div>
           </div>
+        </section>
+        <section class="h-20vh flex flex-nowrap content-center gap-3 py-2 m-1 bg-lime-400">
+          <h1 class="min-w-24 text-right">Diet:</h1>
+          <div class="flex flex-col flex-wrap content-center pr-2">
+            <div class="flex flex-wrap gap-2 bg-lime-300 p-2" id="chip-diet-container">
+              
+            </div>
           </div>
-      </section>
+        </section>
+      </div>
       <!-- ------------------ -->
     </div>
   </header>
@@ -83,7 +85,7 @@
     
     
     <script src="./assets/js/recipe-detail-api.js" onload="onLoad()"></script>
-    <script src="./assets/js/chips/chip-parameters.js" onload="onLoad('mealType', 'chip-meal-container', 'collapse'); onLoad('diet', 'chip-diet-container', 'multi'); setChipsWithURLParams('', 'chip-meal-container')"></script>
+    <script src="./assets/js/chips/chip-parameters.js" onload="onLoad('mealType', 'chip-meal-container', ''); onLoad('diet', 'chip-diet-container', 'multi'); setChipsWithURLParams('', 'chip-meal-container')"></script>
     <script src="./assets/js/search/url-builder.js" onload="onLoad('searchBtn', 'recipeSearch', 'search')"></script>
 </body>
 </html>
