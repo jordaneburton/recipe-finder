@@ -19,6 +19,7 @@ if (checkedIngredients.length > 0) {
   checkedIngredients.forEach(function(ingredient) {
     const ingredientEl = document.createElement("li");
     ingredientEl.textContent = ingredient;
+    ingredientEl.classList.add("text-center");
     ingredientList.appendChild(ingredientEl);
     
   });
@@ -30,6 +31,7 @@ if (checkedIngredients.length > 0) {
 
 const copyButton = document.createElement("button");
 copyButton.textContent = "Copy Ingredients";
+copyButton.classList.add("mt-3");
 ingredientDiv.appendChild(copyButton);
 
 copyButton.addEventListener("click", function() {
