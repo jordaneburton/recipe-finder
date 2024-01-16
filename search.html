@@ -34,6 +34,7 @@
             Find
         </button>
       </div>
+      <!-- This is Search Parameter content -->
       <section class="h-20vh flex flex-nowrap content-center gap-3 py-2">
         <h1 class="min-w-24 text-right">Meal Type:</h1>
         <div class="flex flex-col flex-wrap content-center">
@@ -50,6 +51,7 @@
           </div>
         </div>
       </section>
+      <!-- ------------------ -->
     </div>
     
   </header>
@@ -67,7 +69,11 @@
     </section>
   </footer>
   <script src="./assets/js/chips/build-parameters.js" onload="setAPIParameterCheck('type', 'chip-meal-container'); setAPIParameterCheck('diet','chip-diet-container');"></script>
-  <script src="./assets/js/api.js" onload="onLoad()"></script>
+
+  <script src="./assets/js/search/complex-search.js"></script>
+  <script src="./assets/js/search/search-bar.js" onload="onLoad('recipe-div');"></script>
+  
+
   <script src="./assets/js/chips/chip-parameters.js" onload="onLoad('mealType', 'chip-meal-container', 'collapse'); onLoad('diet', 'chip-diet-container', 'multi'); setChipsWithURLParams('type', 'chip-meal-container'); setChipsWithURLParams('diet', 'chip-diet-container');"></script>
 </body>
 </html>
