@@ -34,10 +34,18 @@
             Find
         </button>
       </div>
-      <section class="h-40vh flex flex-nowrap content-center gap-3 py-2">
-        <h1 class="min-w-fit">Meal Type:</h1>
+      <section class="h-20vh flex flex-nowrap content-center gap-3 py-2">
+        <h1 class="w-18">Meal Type:</h1>
         <div class="flex flex-col flex-wrap content-center">
-          <div class="flex flex-wrap gap-2" id="chip-meal-type">
+          <div class="flex flex-wrap gap-2" id="chip-meal-container">
+            
+          </div>
+        </div>
+      </section>
+      <section class="h-20vh flex flex-nowrap content-center gap-3 py-2">
+        <h1 class="w-18">Diet:</h1>
+        <div class="flex flex-col flex-wrap content-center">
+          <div class="flex flex-wrap gap-2" id="chip-diet-container">
             
           </div>
         </div>
@@ -59,7 +67,7 @@
         <a href="https://github.com/Schtitle24" target="_blank" class="rounded-full px-3 my-1 text-lime-600 bg-white hover:bg-lime-300">Winston "Schtitle24" Steidley</a>
     </section>
   </footer>
-  <script src="./assets/js/api.js"></script>
-  <script src="./assets/js/chips/chip-parameters.js" onload="onLoad('mealType', 'chip-meal-type', 'collapse'); setNodesWithURL('mealType', 'chip-meal-type');"></script>
+  <script src="./assets/js/api.js" onload="onLoad()"></script>
+  <script src="./assets/js/chips/chip-parameters.js" onload="onLoad('mealType', 'chip-meal-container', 'collapse'); onLoad('diet', 'chip-diet-container', 'multi'); setNodesWithURL('mealType', 'chip-meal-container'); setNodesWithURL('diet', 'chip-diet-container');"></script>
 </body>
 </html>

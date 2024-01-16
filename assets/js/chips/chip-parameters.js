@@ -18,12 +18,24 @@ function onLoad(valueType, containerID, chipSelectorType){
 function setNodesWithURL(value, containerID){
   const chipContainer = document.getElementById(containerID);
   const urlParams = new URLSearchParams(window.location.search);
+  const chips = chipContainer.getElementsByClassName("chip-toggle");
   if(value === "mealType"){
-    const chips = chipContainer.getElementsByClassName("chip-toggle");
     var typeParam = urlParams.get("type");
     if(typeParam === null)
       typeParam = "None";
     for(let i = 0;i<chips.length;i++){
+      if(chips[i].textContent === typeParam){
+        chips[i].onclick.apply();
+      }
+    }
+  }
+  else if(value === "diet"){
+    var typeParam = urlParams.get("diet");
+    if(typeParam === null)
+      typeParam = "None";
+
+    for(let i = 0;i<chips.length;i++){
+      console.log(chips[i].textContent + " : " + typeParam);
       if(chips[i].textContent === typeParam){
         chips[i].onclick.apply();
       }

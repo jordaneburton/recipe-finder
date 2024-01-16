@@ -14,15 +14,17 @@ console.log(window.location.search);
 var recentData = undefined;
 var recipesElements = [];
 
-const recipeSearchEl = document.getElementById("recipeSearch");
-//Find Search button and setup click event
-const searchButtonEl = document.getElementById("searchBtn");
-searchButtonEl.onclick = searchRecipesClick;
-recipeSearchEl.value = urlParams.get("query");
+function onLoad(){
+	document.getElementById("recipeSearch").value = urlParams.get("query");
+	//Find Search button and setup click event
+	document.getElementById("searchBtn").onclick = searchRecipesClick;
+
+	searchRecipes(window.location.search);
+}
 //Go to Recipes page and ping API with user entered value
 function searchRecipesClick(event){
   event.preventDefault();
-  query = recipeSearchEl.value.trim();
+  query = document.getElementById("recipeSearch").value.trim();
   if(query === ""){
     console.log("No Value Entered...");
     return;
@@ -191,6 +193,3 @@ const testDataPastaRecipes = {
 	"number": 10,
 	"totalResults": 261
 };
-
-
-searchRecipes(window.location.search);

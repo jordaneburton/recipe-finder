@@ -43,7 +43,7 @@ function searchRecipesClick(event){
   document.location.replace(`./search.html?query=${query}${queryParams}`);
 }
 
-function setParameterCheck(paramName, containerID){
+function setAPIParameterCheck(paramName, containerID){
   parameterList.push({
     "name":paramName,
     "paramValue": "",
