@@ -1,12 +1,8 @@
-const apiKey = "72cb5b31608b4fde9b58b12b834a21a6";
-const apiURL = "https://api.spoonacular.com/recipes/"
-const apiKeyString = `apiKey=${apiKey}`;
-const USE_API = false;
-
 //This will ping the Spoonacular api with a complexSearch, to return recipes.
 //parameters = a built string of parameters to attach to the search query.
-function complexSearch(parameters, callback){
+function fetchComplexSearch(parameters, callback){
   if(USE_API){
+		console.log(`complexSearch${(parameters.length > 0?parameters + "&":"?")}${apiKeyString}`);
     fetch(`${apiURL}complexSearch${(parameters.length > 0?parameters + "&":"?")}${apiKeyString}`)
     .then(result => result.json())
     .then(function(data){

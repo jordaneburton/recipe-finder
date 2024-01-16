@@ -75,9 +75,14 @@
           <a href="https://github.com/Schtitle24" target="_blank" class="rounded-full px-3 my-1 text-lime-600 bg-white hover:bg-lime-300">Winston "Schtitle24" Steidley</a>
       </section>
   </footer>
-    <script src="./assets/js/chips/build-parameters.js" onload="setAPIParameterCheck('type', 'chip-meal-container'); setAPIParameterCheck('diet','chip-diet-container');"></script>
 
-    <script src="./assets/js/recipe-detail-api.js"></script>
+    <script src="./assets/js/search/api/settings.js"></script>
+    <script src="./assets/js/search/api/recipe-information.js"></script>
+
+    <script src="./assets/js/chips/build-parameters.js" onload="setAPIParameterCheck('type', 'chip-meal-container'); setAPIParameterCheck('diet','chip-diet-container');"></script>
+    
+    
+    <script src="./assets/js/recipe-detail-api.js" onload="onLoad()"></script>
     <script src="./assets/js/chips/chip-parameters.js" onload="onLoad('mealType', 'chip-meal-container', 'collapse'); onLoad('diet', 'chip-diet-container', 'multi'); setChipsWithURLParams('', 'chip-meal-container')"></script>
     <script src="./assets/js/search/url-builder.js" onload="onLoad('searchBtn', 'recipeSearch', 'search')"></script>
 </body>

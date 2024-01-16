@@ -36,7 +36,9 @@ function searchRecipes(query){
 		recipeContainer.removeChild(recipesElements[i]); 
 	}
 	recipesElements = [];
-  complexSearch(query, setRecipes);
+
+  //Call is to --> 'complex-search.js'
+  fetchComplexSearch(query, setRecipes);
 }
 
 //This will create the recipe elements and attach them to the container Div.
