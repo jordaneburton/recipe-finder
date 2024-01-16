@@ -6,15 +6,44 @@ For this application we used HTML to build out the structure of our pages as wel
 
 
 
-## Description
 
-For this project ....
-
-Here is a link to the deployed project: [https://jordaneburton.github.io/.../]
+## Table Of Contents
+  1. Dependencies
+  2. Usage
+     - Home Page
+     - 
 
 ### Dependencies
 
 * An up-to-date browser
+
+## Usage
+Here is a walkthrough on what you will see as you navigate our application, as well as the functionality you should expect to see. 
+
+### Home Page
+![Home Page](https://github.com/jordaneburton/recipe-finder/assets/153530625/6638d8b2-ddb9-4e25-b516-5019dbafd5f5)
+
+Here you see our homepage. From here there are a few things that you can do! If it is your first time running the page on your machine than you should look towards the search bar. Here you can enter a food item, beef for instance, and then use the chip buttons below to further filter your search. You can select the Main Course meal type to make sure that you only get back dishes that would be cooked as a main course. You can also select dietary restrictions for those that are vegan, vegetarian, popular diets, or dietary restrictions. 
+
+In the top left of the page you will see two buttons for navigation. The "My Recipes" Button will take you to a page that will store any saved recipes, if it is your first time opening the page on your machine this will be empty. Below that is the "Groceries" button which will navigate you to a page that will house any ingredients you need to buy to make your dish. We will talk more on this in the "Grocery List Page" section. 
+
+In the footer you can see three pill buttons giving credit to the three original creators of the application. Clicking these buttons will navigate you to their respective Github profiles so that you can explore more of their work. 
+
+Lastly, clicking "Find" will take you to our next page. The search results page. 
+
+### Recipe Search Page
+![Search Page REPLACE](https://github.com/jordaneburton/recipe-finder/assets/153530625/93f7ab4f-c2b9-47ac-8c84-075fd0cabd0d)
+
+Here you see the results a search. On this page you have a few things that you can do! You still have the ability to navigate to your saved recipes and grocery list in the top left corner of the page. You will also still have access to the search function and its filters, this will now be located in the top right of the page. 
+
+The body of the page will be populated with different recipes meeting your search criteria, if your search was too broad make sure to modify it and re search using the bar in top right of your page. 
+
+Each recipe will have a star in the top right, clicking this star will save the recipe as a favorite. Storing the recipe image, ID, and Title in local storage in order to call it back in the "My Recipe" page. 
+
+### My Recipe Page
+![Saved Recipes](https://github.com/jordaneburton/recipe-finder/assets/153530625/27f37dcf-386e-4adb-bc6f-3f679c7b7ca0)
+
+
 
 ## Authors
 
