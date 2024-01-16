@@ -1,11 +1,11 @@
 const apiKey = "72cb5b31608b4fde9b58b12b834a21a6";
 const apiURL = "https://api.spoonacular.com/recipes/"
 const apiKeyString = `apiKey=${apiKey}`;
-const USE_API = false;
+const USE_API = true;
 
 //Grab the ID from URL
 const urlParams = new URLSearchParams(window.location.search);
-console.log(window.location.search);
+// console.log(window.location.search);
 // For Go Home functionality -- but there is no going home
 // document.getElementById("home").onclick = (event) =>{
 // 	event.preventDefault();
@@ -15,6 +15,7 @@ var recentData = undefined;
 var recipesElements = [];
 
 function onLoad(){
+	
 	document.getElementById("recipeSearch").value = urlParams.get("query");
 	//Find Search button and setup click event
 	document.getElementById("searchBtn").onclick = searchRecipesClick;
@@ -23,14 +24,14 @@ function onLoad(){
 }
 //Go to Recipes page and ping API with user entered value
 function searchRecipesClick(event){
-  event.preventDefault();
-  query = document.getElementById("recipeSearch").value.trim();
-  if(query === ""){
-    console.log("No Value Entered...");
-    return;
-  }
+	event.preventDefault();
+	query = document.getElementById("recipeSearch").value.trim();
+	if(query === ""){
+		console.log("No Value Entered...");
+		return;
+	}
 	
-	searchRecipes(`?query=${query}`);
+	searchRecipes(`?query=${query}${buildParameters()}`);
 }
 function buildMealTypeParameter(mealType){
 	return `&type=${mealType}`;

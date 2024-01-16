@@ -15,30 +15,34 @@ function onLoad(valueType, containerID, chipSelectorType){
     loadMealType(diet, chipSelectorType, containerID);
   }
 }
-function setNodesWithURL(value, containerID){
+
+//Call from HTML when script is loaded to setup chips from a parameter in the URL.
+//only call after chips have been created.
+//parameter = The name of the paramater to check for in the URL.
+//containerID = ID of the container where the chips are located.
+function setChipsWithURLParams(parameter, containerID){
   const chipContainer = document.getElementById(containerID);
   const urlParams = new URLSearchParams(window.location.search);
   const chips = chipContainer.getElementsByClassName("chip-toggle");
-  if(value === "mealType"){
-    var typeParam = urlParams.get("type");
-    if(typeParam === null)
-      typeParam = "None";
-    for(let i = 0;i<chips.length;i++){
-      if(chips[i].textContent === typeParam){
-        chips[i].onclick.apply();
-      }
-    }
-  }
-  else if(value === "diet"){
-    var typeParam = urlParams.get("diet");
-    if(typeParam === null)
-      typeParam = "None";
 
-    for(let i = 0;i<chips.length;i++){
-      console.log(chips[i].textContent + " : " + typeParam);
-      if(chips[i].textContent === typeParam){
-        chips[i].onclick.apply();
-      }
+  var typeParam = urlParams.get(parameter);
+  if(typeParam === null)
+    typeParam = "None";
+
+  if(typeParam.includes(',')){
+    const typeParams = typeParam.split(',');
+    typeParams.forEach(element =>{
+      setChips(element, chips);
+    });
+  }else{
+    setChips(typeParam, chips);
+  }
+}
+
+function setChips(typeParam, chips){
+  for(let i = 0;i<chips.length;i++){
+    if(chips[i].textContent.toLowerCase() === typeParam.toLowerCase()){
+      chips[i].onclick.apply();
     }
   }
 }

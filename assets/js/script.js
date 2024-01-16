@@ -1,9 +1,8 @@
+const url = new URL(window.location);
 const recipeSearchEl = document.getElementById("recipeSearch");
 //Find Search button and setup click event
 const searchButtonEl = document.getElementById("searchBtn");
 searchButtonEl.onclick = searchRecipesClick;
-
-const parameterList = [];
 //Go to Recipes page and ping API with user entered value
 function searchRecipesClick(event){
   event.preventDefault();
@@ -12,43 +11,22 @@ function searchRecipesClick(event){
     console.log("No Value Entered...");
     return;
   }
-  var queryParams = "";
-  for(let i = 0;i<parameterList.length;i++){
-    const chips = document.getElementById(parameterList[i].containerID).getElementsByClassName("chip-toggle");
-    console.log(chips);
-    for(let index = 0;index<chips.length; index++){
-      if(chips[index].getAttribute("data-checked") === "true"){
-        if(parameterList[i].paramValue !== "")
-          parameterList[i].paramValue = `${parameterList[i].paramValue},${chips[index].textContent}`;
-        else
-          parameterList[i].paramValue = chips[index].textContent;
-      }
-    }
-    if(parameterList[i].paramValue !== "")
-      queryParams = `${queryParams}&${parameterList[i].name}=${parameterList[i].paramValue}`;
-  }
-  // const mealTypeChips = document.getElementById("chip-meal-container").getElementsByClassName("chip-toggle");
-  // var mealTypeParam = "";
-  // for(let i = 0;i<mealTypeChips.length;i++){
-  //   if(mealTypeChips[i].getAttribute("data-checked") === "true"){
-  //     mealTypeParam = mealTypeChips[i].textContent;
+  // var queryParams = "";
+  // for(let i = 0;i<parameterList.length;i++){
+  //   const chips = document.getElementById(parameterList[i].containerID).getElementsByClassName("chip-toggle");
+  //   for(let index = 0;index<chips.length; index++){
+  //     if(chips[index].getAttribute("data-checked") === "true"){
+  //       if(parameterList[i].paramValue !== "")
+  //         parameterList[i].paramValue = `${parameterList[i].paramValue},${chips[index].textContent}`;
+  //       else
+  //         parameterList[i].paramValue = chips[index].textContent;
+  //     }
   //   }
+  //   if(parameterList[i].paramValue !== "")
+  //     queryParams = `${queryParams}&${parameterList[i].name}=${parameterList[i].paramValue}`;
   // }
   
-  // sessionStorage.setItem("search", query);
-  // if(mealTypeParam !== "")
-  //   mealTypeParam = `&type=${mealTypeParam}`;
-
-  
-  document.location.replace(`./search.html?query=${query}${queryParams}`);
-}
-
-function setAPIParameterCheck(paramName, containerID){
-  parameterList.push({
-    "name":paramName,
-    "paramValue": "",
-    "containerID":containerID
-  });
+  document.location.replace(`./search.html?query=${query}${buildParameters()}`);
 }
 
 
