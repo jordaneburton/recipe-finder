@@ -8,8 +8,8 @@ For this application we used HTML to build out the structure of our pages as wel
 
 
 ## Table Of Contents
-  1. Dependencies
-  2. Usage
+  1. [Dependencies](#deps)
+  2. [Usage](#use)
      - [Home Page](#home)
      - [Recipe Search Page](#search)
      - [My Recipe Page](#saved)
@@ -19,11 +19,11 @@ For this application we used HTML to build out the structure of our pages as wel
   4. [Helpful Documentation](#docs)
   5. [Acknowledgements](#credits)
 
-## Dependencies
+## <a name="deps"></a> Dependencies
 
 - An up-to-date browser
 
-## Usage
+## <a name="use"></a> Usage
 Here is a walkthrough on what you will see as you navigate our application, as well as the functionality you should expect to see. 
 
 ### <a name="home"></a> Home Page
