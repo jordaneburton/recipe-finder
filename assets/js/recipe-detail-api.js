@@ -94,11 +94,12 @@ function setDetailRecipe(data){
     const p = document.createElement("p");
     const h2 = document.createElement("h2");
     h2.classList.add("px-2");
-    h2.classList.add("text-large");
+    h2.classList.add("text-xl");
+    h2.classList.add("font-semibold");
     h2.textContent = step.number + ".";
     p.textContent = step.step;
     p.classList.add("pb-1");
-    p.classList.add("text-large");
+    p.classList.add("text-xl");
     div.append(h2);
     div.append(p);
     directionContainer.append(div);
