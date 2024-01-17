@@ -79,6 +79,10 @@ Luke Garnsey
 Winston Steidley
 [@Schtitle24](https://github.com/Schtitle24)
 
+## Helpful Documentation
+
+ [Spoonacular API](https://spoonacular.com/food-api/docs)
+
 
 ## Acknowledgments
 
