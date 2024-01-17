@@ -38,7 +38,8 @@ In the footer you can see three pill buttons giving credit to the three original
 Lastly, clicking "Find" will take you to our next page. The search results page. 
 
 ### <a name="search"></a> Recipe Search Page
-![Recipe Search](https://github.com/jordaneburton/recipe-finder/assets/153530625/c881bf96-bc81-4437-b029-32cb1c5518de)
+![Recipe Search](https://github.com/jordaneburton/recipe-finder/assets/153530625/ca6322c9-2210-4749-a407-12550c9beb30)
+
 
 Here you see the results a search. On this page you have a few things that you can do! You still have the ability to navigate to your saved recipes and grocery list in the top left corner of the page. You will also still have access to the search function and its filters, this will now be located in the top right of the page. 
 
