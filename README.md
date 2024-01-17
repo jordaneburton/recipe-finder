@@ -83,12 +83,12 @@ Winston Steidley
 
 ## <a name="docs"></a> Helpful Documentation
 
- [Spoonacular API](https://spoonacular.com/food-api/docs)
- [Tailwind CSS](https://tailwindcss.com/docs/installation/play-cdn)
- [Heroicons](https://heroicons.com/)
- [MDN Web Docs CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) 
- [MDN Web Docs JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
- [How to Format a README](https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/)
+ - [Spoonacular API](https://spoonacular.com/food-api/docs)
+ - [Tailwind CSS](https://tailwindcss.com/docs/installation/play-cdn)
+ - [Heroicons](https://heroicons.com/)
+ - [MDN Web Docs CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) 
+ - [MDN Web Docs JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+ - [How to Format a README](https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/)
 
 
 ## <a name="credits"></a> Acknowledgments
