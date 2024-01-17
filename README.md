@@ -67,7 +67,8 @@ In the main body you will see the name of your dish, the cook time of your dish,
 Once you have checked the ingredients you will need to buy in order to make your recipe. Click the "Groceries" button! 
 
 ### <a name="groceries"></a> Groceries Page
-![grocery list](https://github.com/jordaneburton/recipe-finder/assets/153530625/76308a2b-cd1a-43c3-9d56-a1096d9c3d00)
+![image](https://github.com/jordaneburton/recipe-finder/assets/153530625/a0d8d4ad-5a80-49c4-b5c7-18588cffbf7d)
+
 
 Upon navigation to the "Groceries Page" you will be presented with a list of the ingredients you saved on the "Detailed Ingredients Page". There should only be one ingredient per line. You will also see a button to copy the list of ingredients. When you click the button it should copy the list of ingredients to your clipboard for you to paste wherever you would like. 
 
