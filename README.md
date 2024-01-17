@@ -48,7 +48,7 @@ The body of the page will be populated with different recipes meeting your searc
 Each recipe will have a star in the top right, clicking this star will save the recipe as a favorite. Storing the recipe image, ID, and Title in local storage in order to call it back in the "My Recipe" page. 
 
 ### <a name="saved"></a> My Recipe Page
-![Saved Recipes](https://github.com/jordaneburton/recipe-finder/assets/153530625/27f37dcf-386e-4adb-bc6f-3f679c7b7ca0)
+![My Recipes](https://github.com/jordaneburton/recipe-finder/assets/153530625/eff2efed-f24e-4f00-844b-122ac1df384e)
 
 Upon navigating to the "My Recipe" page you will be presented with the recipes that you chose to save.These recipes will be populating using the local storage to grab the ID, Title, and Image of the recipe from your search and then displaying them here.  Each recipe will have an "X" in the top right of the card. Clicking on this will delete from the stored array of objects and remove it from your page entirely. If you wish to add it back, in the current version, you must find it through the search and add it back to your saved recipes. 
 
