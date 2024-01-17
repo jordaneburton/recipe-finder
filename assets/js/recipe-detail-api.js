@@ -147,8 +147,10 @@ function buildIngredient(data){
     checkBox.addEventListener("change", function() {
       if (this.checked) {
         checkedIngredients.push(data.original);
+        this.classList.add('click-ping');
         console.log("added:", data.original);
       } else {
+        this.classList.remove('click-ping');
         const index = checkedIngredients.indexOf(data.original);
         if (index > -1) {
           checkedIngredients.splice(index, 1);
