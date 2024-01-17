@@ -19,9 +19,9 @@ For this application we used HTML to build out the structure of our pages as wel
   4. Helpful Documentation
   5. Acknowledgements
 
-### Dependencies
+## Dependencies
 
-* An up-to-date browser
+- An up-to-date browser
 
 ## Usage
 Here is a walkthrough on what you will see as you navigate our application, as well as the functionality you should expect to see. 
