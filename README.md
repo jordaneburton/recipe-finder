@@ -15,7 +15,9 @@ For this application we used HTML to build out the structure of our pages as wel
      - My Recipe Page
      - Detailed Ingredients Page
      - Grocery List Page
-  3. 
+  3. Authors
+  4. Helpful Documentation
+  5. Acknowledgements
 
 ### Dependencies
 
