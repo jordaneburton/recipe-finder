@@ -1,6 +1,13 @@
 var recipeContainer = undefined;
 var recipesElements = [];
 
+// Styling classes for recipe cards
+const recipeDivStyles = ['relative', 'p-2', 'rounded-xl', 'text-white', 'bg-lime-500'];
+const recipeNameStyles = ['font-semibold', 'ml-4', 'text-lg'];
+const recipeButtonStyles = ['absolute', 'top-2', 'right-3', 'md:rounded-full', 'md:bg-gray-900/10'];
+const recipeSaveStyles = ['md:hidden', 'font-semibold', 'text-xl'];
+const recipeSVGStyles = ['hidden', 'md:block', 'w-6', 'h-6'];
+
 //Call once this script is loaded to initialize the search bar
 //containerID = the id of the element to put all the recipes.
 function onLoad(containerID){
@@ -59,14 +66,37 @@ function buildRecipe(recipeData){
   const div = document.createElement("div");
   const title = document.createElement("h1");
   const image = document.createElement("img");
+
   //Creating the save buttons
   const saveButton = document.createElement("button");
-  saveButton.textContent = "Save";
+  const saveText = document.createElement('span');
+  const saveSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  saveText.textContent = "Save";
+  
+  // Styling the svg element
+  saveSVG.setAttribute('viewBox', '0 0 24 24');
+  saveSVG.setAttribute('fill', 'currentColor');
+  // Creating svg path
+  const svgPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  svgPath.setAttribute('d', 'M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z');
+  svgPath.setAttribute('clip-rule', 'evenodd');
+  saveSVG.append(svgPath);
+  // appending span and svg to save buttons
+  saveButton.append(saveText);
+  saveButton.append(saveSVG);
+
+  // apply classes to the recipe elements
+  for (style of recipeDivStyles) {div.classList.add(style)}
+  for (style of recipeNameStyles) {title.classList.add(style)}
+  for (style of recipeButtonStyles) {saveButton.classList.add(style)}
+  for (style of recipeSaveStyles) {saveText.classList.add(style)}
+  for (style of recipeSVGStyles) {saveSVG.classList.add(style)}
 
   div.append(title);
-  div.append(image);
   //appending the save buttons to the div
   div.append(saveButton);
+  
+  div.append(image);
 
   title.textContent = recipeData.title;
   image.src = recipeData.image;
