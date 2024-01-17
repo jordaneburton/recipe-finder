@@ -4,9 +4,7 @@ Our Recipe Finder is here to alleviate that stress and be your One-Stop Shop for
 
 &nbsp;&nbsp;&nbsp;&nbsp; For this application we used HTML to build out the structure of our pages as well as the elements that persist from page to page. CSS was used in very specific cases to effect sizing, create custom breakpoints, and create custom style classes. Javascript was used to create and style dynamicly updated elements for our pages. Tailwind was used to style the entire project, using its framework to do so. By being sinmplistic in our HTML structure it was extremely easy for three people to code side by side, by using the dynamically created elements both styling and functionality of the pages became more fluid, appealing, and useable. We decided to use CSS as a scalpel in very specific situations to make sure the application looked they way we desired and worked on multiple screen sizes as intended. 
 
-<br>
-<br>
-<br>
+
 ## Table Of Contents
   1. [Dependencies](#deps)
   2. [Usage](#use)
@@ -18,16 +16,14 @@ Our Recipe Finder is here to alleviate that stress and be your One-Stop Shop for
   3. [Authors](#authors)
   4. [Helpful Documentation](#docs)
   5. [Acknowledgements](#credits)
-<br>
+
 ## <a name="deps"></a> Dependencies
 
 - An up-to-date browser
-<br>
-<br>
+
 ## <a name="use"></a> Usage
 Here is a walkthrough on what you will see as you navigate our application, as well as the functionality you should expect to see. 
-<br>
-<br>
+
 ### <a name="home"></a> Home Page
 ![Home Page](https://github.com/jordaneburton/recipe-finder/assets/153530625/6638d8b2-ddb9-4e25-b516-5019dbafd5f5)
 
