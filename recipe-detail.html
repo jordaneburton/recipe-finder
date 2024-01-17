@@ -69,17 +69,19 @@
 
   <main class="container max-w-full mb-10 px-2">
     <!-- for populating with recipes -->
-    <div class="w-3/4 md:w-1/2 inline-block">
-      <h1 id="title" class="mb-1"></h1>
-      <h3 id="ready-in" class="mt-1"></h3>
-      <h3 id="servings" class="mt-1"></h3>
-      <img id="main-image" class="block max-w-full"> 
-      <div class="space-x-2.5 py-2 bg-lime-100 flex">
-        <button type="button" id="ingredients-button" class="flex-auto rounded py-2 px-4 border bg-blue-500 hover:bg-blue-700 text-white font-bold border-blue-700">ingredients</button>
-        <button type="button" id="direction-button" class="flex-auto rounded  py-2 px-4 border bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white border-blue-500 hover:border-transparent">Directions</button>
+    <div class="my-2 w-full md:w-3/5 flex flex-col">
+      <h1 id="title" class="mb-2 text-center text-6xl md:text-5xl font-bold text-lime-600"></h1>
+      <div class="flex flex-wrap justify-around">
+        <h3 id="ready-in" class="my-3 text-xl font-semibold"></h3>
+        <h3 id="servings" class="my-3 text-xl font-semibold"></h3>
       </div>
-      <div id="ingredients-container" class="container flex flex-wrap bg-lime-200"></div>
-      <div id="directions-container" class="container flex flex-wrap bg-lime-200"></div>
+      <img id="main-image" class="block max-w-full rounded-3xl place-self-center"> 
+      <div class="space-x-2.5 py-4 flex">
+        <button type="button" id="ingredients-button" class="flex-auto rounded-full text-xl md:text-3xl py-2 px-4 border">Ingredients</button>
+        <button type="button" id="direction-button" class="flex-auto rounded-full text-xl md:text-3xl py-2 px-4 border">Directions</button>
+      </div>
+      <div id="ingredients-container" class="container flex flex-wrap"></div>
+      <div id="directions-container" class="container flex flex-wrap bg-lime-200 rounded-3xl"></div>
     </div>
     
   </main>

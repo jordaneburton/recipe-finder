@@ -3,7 +3,7 @@ var recipesElements = [];
 
 // Styling classes for recipe cards
 const recipeDivStyles = ['relative', 'p-2', 'rounded-xl', 'text-white', 'bg-lime-500'];
-const recipeNameStyles = ['font-semibold', 'ml-4', 'text-lg'];
+const recipeNameStyles = ['font-semibold', 'ml-4', 'w-2/3', 'pb-2', 'text-xl'];
 const recipeButtonStyles = ['absolute', 'top-2', 'right-3', 'md:rounded-full', 'md:bg-gray-900/10'];
 const recipeSaveStyles = ['md:hidden', 'font-semibold', 'text-xl'];
 const recipeSVGStyles = ['hidden', 'md:block', 'w-6', 'h-6'];
@@ -109,6 +109,15 @@ function buildRecipe(recipeData){
       title: recipeData.title,
       image: recipeData.image,
     };
+
+    // animate button ping
+    if (!this.classList.contains('click-ping')) {
+      this.classList.remove('unclick-ping');
+      this.classList.add('click-ping');
+    }else{
+      this.classList.add('unclick-ping');
+      this.classList.remove('click-ping');
+    }
 
     // Retrieve existing saved recipes from local storage
     const existingRecipes = localStorage.getItem("savedRecipes");

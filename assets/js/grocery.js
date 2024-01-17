@@ -23,20 +23,23 @@ if (checkedIngredients.length > 0) {
     const ingredientEl = document.createElement("li");
     ingredientEl.textContent = ingredient;
     ingredientEl.classList.add("text-center");
+    ingredientEl.classList.add("text-lg");
+    ingredientEl.classList.add("underline");
     ingredientList.appendChild(ingredientEl);
-    
-    const copyButton = document.createElement("button");
-    copyButton.textContent = "Copy Ingredients";
-    copyButton.classList.add("mt-3", 'p-2');
-    ingredientDiv.appendChild(copyButton);
-    for (style of copyButtonStyles) {copyButton.classList.add(style)}
 
-    copyButton.addEventListener("click", function() {
-      const ingredientList = checkedIngredients.join("\n");
-      navigator.clipboard.writeText(ingredientList)
-    });
+  })
+  
+  const copyButton = document.createElement("button");
+  copyButton.textContent = "Copy Ingredients";
+  copyButton.classList.add("mt-3", 'p-2');
+  ingredientDiv.appendChild(copyButton);
+  for (style of copyButtonStyles) {copyButton.classList.add(style)}
 
+  copyButton.addEventListener("click", function() {
+    const ingredientList = checkedIngredients.join("\n");
+    navigator.clipboard.writeText(ingredientList)
   });
+
 } else {
   const noIngredients = document.createElement("div");
   noIngredients.textContent = `You have all you need
