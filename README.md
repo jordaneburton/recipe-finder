@@ -56,7 +56,8 @@ Our footer remains the same, enabling you to view the Github profiles of the ori
 Lastly, clicking on the image of a recipe will take you to its detailed ingredient list! 
 
 ### <a name="ingredient"></a> Detailed Ingredients Page
-![Detailed Ingredients](https://github.com/jordaneburton/recipe-finder/assets/153530625/c20d5e34-e2bd-4768-b640-4290cef4c96f)
+![Detailed Ingredients](https://github.com/jordaneburton/recipe-finder/assets/153530625/b5a3f5b2-ecb3-4853-a468-ffb1a04a8ecd)
+
 
 Upon navigating to the Detailed Ingredients Page by clicking on a recipe from "My Recipes" you will see the page above. The page should retain the "My Recipe" and "Groceries" buttons in the top left of your page. As well as the search and filter options in the top right of your page. 
 
