@@ -82,8 +82,13 @@ Winston Steidley
 ## Helpful Documentation
 
  [Spoonacular API](https://spoonacular.com/food-api/docs)
+ [Tailwind CSS](https://tailwindcss.com/docs/installation/play-cdn)
+ [Heroicons](https://heroicons.com/)
+ [MDN Web Docs CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) 
+ [MDN Web Docs JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+ [How to Format a README](https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/)
 
 
 ## Acknowledgments
 
-Thank you to people/orgs who inspired us
+We would like to thank our instructors Rachel and Ian for helping us put together this idea and turn it into a reality. As well as the other bootcamp students who suggessted features and acted as a sounding board for our application. 
