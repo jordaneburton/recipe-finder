@@ -3,6 +3,13 @@ const savedRecipes = localStorage.getItem("savedRecipes");
 
 let recipesArray;
 
+// Styling classes for recipe cards
+const recipeDivStyles = ['relative', 'p-2', 'rounded-xl', 'text-white', 'bg-lime-500'];
+const recipeNameStyles = ['font-semibold', 'ml-4', 'text-lg'];
+const recipeButtonStyles = ['absolute', 'top-2', 'right-3', 'md:rounded-full', 'md:bg-gray-900/10'];
+const recipeDeleteStyles = ['md:hidden', 'font-semibold', 'text-xl'];
+const recipeSVGStyles = ['hidden', 'md:block', 'w-6', 'h-6'];
+
 // Check if previous saved recipes exists
 if (savedRecipes) {
   recipesArray = JSON.parse(savedRecipes);
@@ -34,12 +41,28 @@ recipesArray.forEach(function(savedRecipe, index) {
   parentElement.appendChild(link);
 
   const deleteButton = document.createElement("button");
-  deleteButton.textContent = "Delete";
+  const deleteText = document.createElement('span');
+  deleteText.textContent = "Delete";
+  const deleteSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+
+  // Styling the svg element
+  deleteSVG.setAttribute('viewBox', '0 0 24 24');
+  deleteSVG.setAttribute('fill', 'currentColor');
+  // Creating svg path
+  const svgPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  svgPath.setAttribute('d', 'M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z');
+  svgPath.setAttribute('clip-rule', 'evenodd');
+  
+  deleteSVG.append(svgPath);
+  // appending span and svg to delete buttons
+  deleteButton.append(deleteText);
+  deleteButton.append(deleteSVG);
 
   // Append the recipe elements to the container
   div.append(title);
-  div.append(link); // Append the link instead of just the image
+  // Append the link instead of just the image
   div.append(deleteButton);
+  div.append(link); 
 
   //Event listener to run the removeRecipe funtion at the declared index
   deleteButton.addEventListener("click", function() {
@@ -47,8 +70,14 @@ recipesArray.forEach(function(savedRecipe, index) {
   });
 
   savedRecipesDiv.append(div);
+    
+  // apply classes to the recipe elements
+  for (style of recipeDivStyles) {div.classList.add(style)}
+  for (style of recipeNameStyles) {title.classList.add(style)}
+  for (style of recipeButtonStyles) {deleteButton.classList.add(style)}
+  for (style of recipeDeleteStyles) {deleteText.classList.add(style)}
+  for (style of recipeSVGStyles) {deleteSVG.classList.add(style)}
 });
-
 
 
 // Function to remove a recipe from the array and refresh the page
