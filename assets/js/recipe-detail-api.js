@@ -34,19 +34,23 @@ function buildIngredient(data){
     const imageEl = document.createElement("img");
     imageEl.src = `https://spoonacular.com/cdn/ingredients_100x100/${data.image}`;
     div.append(imageEl);
-
-    const amountEl = document.createElement("h3");
-    amountEl.textContent = `${data.amount} ${data.unit}`;
-    div.append(amountEl);
-    amountEl.style.display = "inline-block";
-    amountEl.style.paddingLeft = "10px";
+    imageEl.classList.add("py-1");
+    // const amountEl = document.createElement("h3");
+    // amountEl.textContent = `${data.amount} ${data.unit}`;
+    // div.append(amountEl);
+    // amountEl.style.display = "inline-block";
+    // amountEl.style.borderBlockEnd = "1px dotted black";
+    // amountEl.classList.add("mb-1");
 
     const nameEl = document.createElement("h2");
     div.append(nameEl);
     nameEl.textContent = data.original;
+    // nameEl.style.borderBlockEnd = "1px dotted black";
+    nameEl.classList.add("mb-1");
     div.style.paddingBottom = "5px";
-    div.style.border = "2px dotted black";
-    div.style.maxWidth = "100%";
+    div.style.border = "2px solid black";
+    div.classList.add("w-1/3");
+    div.classList.add("p-2")
     
     // checkbox to save an ingredient to the local storage
     const checkBox = document.createElement("input");
