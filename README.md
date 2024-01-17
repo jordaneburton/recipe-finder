@@ -10,7 +10,7 @@ For this application we used HTML to build out the structure of our pages as wel
 ## Table Of Contents
   1. Dependencies
   2. Usage
-     - Home Page
+     - [Home Page](#home)
      - Recipe Search Page
      - My Recipe Page
      - Detailed Ingredients Page
@@ -26,7 +26,7 @@ For this application we used HTML to build out the structure of our pages as wel
 ## Usage
 Here is a walkthrough on what you will see as you navigate our application, as well as the functionality you should expect to see. 
 
-### <a name="home-page"><a/> Home Page
+###<a name="home"></a> Home Page
 ![Home Page](https://github.com/jordaneburton/recipe-finder/assets/153530625/6638d8b2-ddb9-4e25-b516-5019dbafd5f5)
 
 Here you see our homepage. From here there are a few things that you can do! If it is your first time running the page on your machine than you should look towards the search bar. Here you can enter a food item, beef for instance, and then use the chip buttons below to further filter your search. You can select the Main Course meal type to make sure that you only get back dishes that would be cooked as a main course. You can also select dietary restrictions for those that are vegan, vegetarian, popular diets, or dietary restrictions. 
