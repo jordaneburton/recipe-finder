@@ -92,8 +92,8 @@ Winston Steidley
  - [How to Format a README](https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/)
 
 ## <a name="credits"></a> Live Application & Repository Link
-    -[Repository](https://github.com/jordaneburton/recipe-finder)
-    -[Live Application](https://jordaneburton.github.io/recipe-finder/)
+    - [Repository](https://github.com/jordaneburton/recipe-finder)
+    - [Live Application](https://jordaneburton.github.io/recipe-finder/)
     
 
 ## <a name="credits"></a> Acknowledgments
