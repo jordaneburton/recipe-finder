@@ -90,6 +90,10 @@ Winston Steidley
  - [MDN Web Docs JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
  - [How to Format a README](https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/)
 
+## <a name="credits"></a> Live Application & Repository Link
+    -[Repository](https://github.com/jordaneburton/recipe-finder)
+    -[Live Application](https://jordaneburton.github.io/recipe-finder/)
+    
 
 ## <a name="credits"></a> Acknowledgments
 
