@@ -110,6 +110,15 @@ function buildRecipe(recipeData){
       image: recipeData.image,
     };
 
+    // animate button ping
+    if (!this.classList.contains('click-ping')) {
+      this.classList.remove('unclick-ping');
+      this.classList.add('click-ping');
+    }else{
+      this.classList.add('unclick-ping');
+      this.classList.remove('click-ping');
+    }
+
     // Retrieve existing saved recipes from local storage
     const existingRecipes = localStorage.getItem("savedRecipes");
 

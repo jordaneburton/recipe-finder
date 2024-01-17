@@ -95,11 +95,13 @@ function setDetailRecipe(data){
     const h2 = document.createElement("h2");
     h2.classList.add("px-2");
     h2.classList.add("text-xl");
+    h2.classList.add("md:text-2xl");
     h2.classList.add("font-semibold");
     h2.textContent = step.number + ".";
     p.textContent = step.step;
     p.classList.add("pb-1");
     p.classList.add("text-xl");
+    p.classList.add("md:text-2xl");
     div.append(h2);
     div.append(p);
     directionContainer.append(div);
@@ -149,9 +151,11 @@ function buildIngredient(data){
       if (this.checked) {
         checkedIngredients.push(data.original);
         this.classList.add('click-ping');
+        this.classList.remove('unclick-ping');
         console.log("added:", data.original);
       } else {
         this.classList.remove('click-ping');
+        this.classList.add('unclick-ping');
         const index = checkedIngredients.indexOf(data.original);
         if (index > -1) {
           checkedIngredients.splice(index, 1);

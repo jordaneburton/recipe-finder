@@ -11,15 +11,12 @@
     max-height: 18vh;
 }
 
-/* .px-2 {
-    font-size: large;
-}
-
-.pb-1 {
-    font-size: large;
-} */
 .click-ping {
     animation: ping 1s cubic-bezier(0, 0, 0.2, 1) 1;
+}
+
+.unclick-ping {
+    animation: unping 1s cubic-bezier(0, 0, 0.2, 1) 1;
 }
 
 @keyframes ping {
@@ -28,6 +25,13 @@
     opacity: 0;
   }
 }
+
+@keyframes unping {
+    75%, 100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
 
 @media (min-width: 768px) {
     .header-mobile {

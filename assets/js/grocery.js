@@ -23,6 +23,8 @@ if (checkedIngredients.length > 0) {
     const ingredientEl = document.createElement("li");
     ingredientEl.textContent = ingredient;
     ingredientEl.classList.add("text-center");
+    ingredientEl.classList.add("text-lg");
+    ingredientEl.classList.add("underline");
     ingredientList.appendChild(ingredientEl);
 
   })

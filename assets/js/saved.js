@@ -67,6 +67,8 @@ recipesArray.forEach(function(savedRecipe, index) {
   //Event listener to run the removeRecipe funtion at the declared index
   deleteButton.addEventListener("click", function() {
     removeRecipe(index);
+    // animate button ping
+    this.classList.add('click-ping');
   });
 
   savedRecipesDiv.append(div);
