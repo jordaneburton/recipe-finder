@@ -1,7 +1,7 @@
 var activeIngredientEl = [];
 var activeDirectionsEl = [];
-const activeButton = ["bg-blue-500", "hover:bg-blue-700", "text-white","font-bold", "border-blue-700"];
-const inActiveButton = ["bg-transparent", "hover:bg-blue-500", "text-blue-700", "font-semibold", "hover:text-white", "border-blue-500", "hover:border-transparent"];
+const activeButton = ["bg-lime-500", "hover:bg-lime-700", "text-white","font-bold", 'ring-4', "ring-lime-600"];
+const inActiveButton = ["bg-lime-100", "hover:bg-lime-500", "text-lime-700", "font-semibold", "hover:text-white", 'ring-4', "ring-lime-300", "hover:border-transparent"];
 
 let showIngredients = true;
 
@@ -13,6 +13,16 @@ function onLoad(){
   directionContainer.classList.add("hidden");
   ingredientButton.classList.add("hidden");
   directionButton.classList.add("hidden");
+
+  // setup button initial styling
+  ingredientContainer.classList.remove("hidden");
+  inActiveButton.forEach(item =>{
+    directionButton.classList.add(item);
+  });
+  activeButton.forEach(item =>{
+    ingredientButton.classList.add(item);
+  });
+
   showIngredients = true;
   ingredientButton.onclick = (event) =>{
     if(showIngredients)
@@ -84,9 +94,11 @@ function setDetailRecipe(data){
     const p = document.createElement("p");
     const h2 = document.createElement("h2");
     h2.classList.add("px-2");
+    h2.classList.add("text-large");
     h2.textContent = step.number + ".";
     p.textContent = step.step;
     p.classList.add("pb-1");
+    p.classList.add("text-large");
     div.append(h2);
     div.append(p);
     directionContainer.append(div);
@@ -100,6 +112,8 @@ function buildIngredient(data){
     const div = document.createElement("div");
     
     const imageEl = document.createElement("img");
+    imageEl.classList.add("justify-self-center");
+    imageEl.classList.add("rounded-2xl");
     imageEl.src = `https://spoonacular.com/cdn/ingredients_100x100/${data.image}`;
     div.append(imageEl);
     imageEl.classList.add("py-1");
@@ -109,16 +123,22 @@ function buildIngredient(data){
     div.append(nameEl);
     nameEl.textContent = data.original;
     
-    nameEl.classList.add("mb-1");
-    div.style.paddingBottom = "5px";
-    div.style.border = "2px solid black";
-    div.classList.add("w-1/3");
-    div.classList.add("p-2")
+    // style ingredient name elements
+    nameEl.classList.add("mt-3");
+    nameEl.classList.add("text-xl");
+    nameEl.classList.add("text-center");
+    nameEl.classList.add("md:text-start");
+
+    // style div elements
+    const divStyleList = ["lg:w-1/3", "md:w-1/2", "w-full", "p-2", "my-3", "rounded-2xl", "relative", "grid", "grid-col-1", "lg:grid-col-2", "place-content-center", "bg-lime-200", "ring-inset", "border-4", "border-lime-700"];
+    for (style of divStyleList) {div.classList.add(style)}
     
     // checkbox to save an ingredient to the local storage
     const checkBox = document.createElement("input");
     checkBox.type = "checkbox";
     div.append(checkBox);
+    const checkboxStyleList = ['absolute', 'top-3', 'right-3', 'appearance-none', 'rounded-full', 'bg-lime-100', 'checked:bg-lime-700', 'ring', 'ring-lime-500', 'size-8'];
+    for (style of checkboxStyleList) {checkBox.classList.add(style)}
     
 
 
