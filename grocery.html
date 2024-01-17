@@ -69,8 +69,8 @@
         
     </header>
         
-    <main id="ingredient-div" class="container max-w-full h-auto flex flex-col justify-center">
-        <ol id="ingredient-list"></ol>
+    <main id="ingredient-div" class="container max-w-full flex flex-col items-center text-center mb-10 md:w-3/5">
+        <ol id="ingredient-list" class=" grid grid-cols-1 md:grid-cols-2 gap-4 place-items-center"></ol>
         <!-- for populating with ingredients -->
     </main>
 
@@ -82,5 +82,9 @@
         </section>
     </footer>
     <script src="./assets/js/grocery.js"></script>
+    <script src="./assets/js/chips/build-parameters.js" onload="setAPIParameterCheck('type', 'chip-meal-container'); setAPIParameterCheck('diet','chip-diet-container');"></script>
+    <script src="./assets/js/chips/chip-parameters.js" onload="onLoad('mealType', 'chip-meal-container', ''); onLoad('diet', 'chip-diet-container', 'multi'); setChipsWithURLParams('', 'chip-meal-container')"></script>
+    <script src="./assets/js/search/url-builder.js" onload="onLoad('searchBtn', 'recipeSearch', 'search')"></script>
+
 </body>
 </html>
